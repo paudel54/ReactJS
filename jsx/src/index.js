@@ -17,7 +17,12 @@ const root = ReactDOM.createRoot(el);
 //4) Create a component
 //component is a function that returns some JSX  
 function App() {
-  return <h1> Hello Mr, Kim</h1>
+  //return is always req to render in screen , if its not returned it's not shown in the screen.
+  let message = 'Bye there!!';
+  if (Math.random() > 0.5) {
+    message = 'Hello there!';
+  }
+  return <h1> {message} </h1>
 }
 
 //5) Show the component on the screen 
