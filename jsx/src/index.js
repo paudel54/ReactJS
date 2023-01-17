@@ -18,11 +18,11 @@ const root = ReactDOM.createRoot(el);
 //component is a function that returns some JSX  
 function App() {
   //return is always req to render in screen , if its not returned it's not shown in the screen.
-  let message = 'Bye there!!';
-  if (Math.random() > 0.5) {
-    message = 'Hello there!';
-  }
-  return <h1> {message} </h1>
+  //reducing the use of two diff variable to single argument
+  // const date = new Date();
+  // const time = date.toLocaleTimeString();
+
+  return <h1> {new Date().toLocaleTimeString()} </h1>
 }
 
 //5) Show the component on the screen 
