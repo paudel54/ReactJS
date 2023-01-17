@@ -21,8 +21,12 @@ function App() {
   //reducing the use of two diff variable to single argument
   // const date = new Date();
   // const time = date.toLocaleTimeString();
-
-  return <h1> {new Date().toLocaleTimeString()} </h1>
+  // return <h1> {new Date().toLocaleTimeString()} </h1>
+  // const name = 'Donald Trump'
+  // return <div> My name is:
+  //   <h1>{name}</h1>
+  // </div>
+  return <input type="number" style={{ border: '3px solid blue' }} min={5} />
 }
 
 //5) Show the component on the screen 
