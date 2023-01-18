@@ -1,6 +1,6 @@
 //passing props as argument,object to receive the props sent from parent app.js
 //not necessary to pass argument name as props its a variable and can be named anythings
-function ProfileCard({ title, handle }) {
+function ProfileCard({ title, handle, image }) {
     // const title = props.title;
     // const handle = props.handle;
     //adding to variable can be a good thing but we can do it in better way: 
@@ -12,8 +12,10 @@ function ProfileCard({ title, handle }) {
     return (
         <div>
             {/* javascript var should be inside a curly braces */}
+            <img src={image} alt="icons" />
             <div>Title is {title} </div>
             <div>Handle is {handle}</div>
+
         </div>
     );
 }
