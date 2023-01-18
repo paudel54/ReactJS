@@ -22,11 +22,30 @@ function App() {
   // const date = new Date();
   // const time = date.toLocaleTimeString();
   // return <h1> {new Date().toLocaleTimeString()} </h1>
-  // const name = 'Donald Trump'
+  // const name = 'Donald Trump' 
   // return <div> My name is:
   //   <h1>{name}</h1>
   // </div>
-  return <input type="number" style={{ border: '3px solid blue' }} min={5} />
+  // return <input type="number" style={{ border: '3px solid blue' }} min={5} />
+
+  //jsx prop follows camelCase Property
+  // return <textarea autoFocus={true} />
+
+  return (
+    //class attrubute must be camelcase here className is camel case
+    <div className="wrapper">
+      <textarea
+        readOnly
+        //num prop should be in curly braket
+        maxLength={3}
+        //boolena true written just the property name its auto reconized as true
+        spellCheck
+        //inline style provided a object use of curly brakets of 2 set, outer set 
+        style={{ backgroundColor: 'gray' }}
+      />
+    </div>
+  )
+
 }
 
 //5) Show the component on the screen 
