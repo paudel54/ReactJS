@@ -37,3 +37,10 @@ function App() {
 }
 
 export default App;
+
+
+// UNDERSTOOD STATE
+//EVENTS
+//SETTLER FUNCTION
+//DESTRUCTURING
+//BUILDING LIST
