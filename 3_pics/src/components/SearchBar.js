@@ -16,12 +16,15 @@ function SearchBar({ onSubmit }) {
         //3.Got value from input with event.target.value
         // console.log(event.target.value);
         //4.use with setter func to take value from input and update
-        setTerm(event.target.value);
+        setTerm(event.target.value.replace([/a-z/], ''));
     };
 
     return <div>
         {/* wrapping the input element inside form element  porvides a power to submit the form auto when user hits enter*/}
         <form onSubmit={handleFormSubmit}>
+            {/* term is a var from useState */}
+            Confirm your Search: {term}
+            <br></br>
             <input value={term} onChange={handleChange} />
         </form>
 
