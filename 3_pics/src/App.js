@@ -1,14 +1,21 @@
-//
-import SearchBar from './components/SearchBar'
+//import for passing image to image list
+import { useState } from 'react';
+import SearchBar from './components/SearchBar';
 //App be the parent , SearchBar be a child component
 
-import SearchImages from './api'
+import SearchImages from './api';
+import ImageList from './components/ImageList';
+
 function App() {
+    //creating new state for passing image to imageList
+    const [images, setImages] = useState([]);
     // Creating event handler for handleSubmit
     const handleSubmit = async (term) => {
         // console.log('Do a search with', term);
         const result = await SearchImages(term);
-        console.log(result);
+        // console.log(result); 
+        //update setImages states
+        setImages(result);
     };
 
     return (
@@ -19,6 +26,7 @@ function App() {
             {/* only in case of use of builtin custom btn we need to use definate name */}
             {/* only thing that matters is name of prop matches to child comp */}
             <SearchBar onSubmit={handleSubmit} />
+            <ImageList images={images} />
         </div>);
 }
 
