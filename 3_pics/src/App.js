@@ -31,3 +31,5 @@ function App() {
 }
 
 export default App;
+
+// MINI PROJECT 3 , SEARCH IMAGES WITH API CALL ACCOMPLISHED. 

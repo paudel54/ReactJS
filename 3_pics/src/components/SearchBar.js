@@ -1,6 +1,7 @@
 //Here onSubmit prop is taken out from App.js custom component prop name
 //1.defining  new state for handling input elements
 import { useState } from 'react';
+import './SearchBar.css'
 
 function SearchBar({ onSubmit }) {
     const [term, setTerm] = useState('');
@@ -25,11 +26,12 @@ function SearchBar({ onSubmit }) {
 
     };
 
-    return <div>
+    return <div className='search-bar'>
         {/* wrapping the input element inside form element  porvides a power to submit the form auto when user hits enter*/}
         <form onSubmit={handleFormSubmit}>
             {/* term is a var from useState */}
-            Confirm your Search: {term}
+            {/* Confirm your Search: {term} */}
+            <label>Enter Search Term</label>
             <br></br>
             {/* wiring up the event handler to input telling up with current value must be term or '' state */}
             <input value={term} onChange={handleChange} />
