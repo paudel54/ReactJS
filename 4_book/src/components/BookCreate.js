@@ -15,12 +15,13 @@ function BookCreate({ onCreate }) {
         //This is acheive by making setter function empty
         setTitle('')
     }
-    return <div>
+    return <div className="book-create">
+        <h3>Add a Book</h3>
         <form onSubmit={handleSubmit}>
             <label>Title</label>
             {/* wiring up title and handle change in input element */}
-            <input value={title} onChange={handleChange} />
-            <button>Create!</button>
+            <input className="input" value={title} onChange={handleChange} />
+            <button className="button">Create!</button>
         </form>
     </div>
 }
