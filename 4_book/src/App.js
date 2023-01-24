@@ -55,6 +55,7 @@ function App() {
         console.log('Need to add book with', title)
     };
     return <div className='app'>
+        <h1>Reading List</h1>
         {/* need to find out why books.length gets updated length ? */}
         {/* {books.length} */}
         <BookList books={books} onDelete={deleteBookById} onEdit={editBookById} />

@@ -26,6 +26,8 @@ function BookShow({ book, onDelete, onEdit }) {
 
 
     return <div className="book-show">
+        {/* adding images */}
+        <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
         {/* {book.title} */}
         {/* to make toggle functional we set content here */}
         <div>{content}</div>
