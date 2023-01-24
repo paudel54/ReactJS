@@ -7,9 +7,22 @@ function App() {
     //event handler to pass as prop
     //for custom event handler we can pass prop name of our choice
 
+    //fn to edit book from child comp into parent.
+    //update element with map function.
+    const editBookById = (id, newTitle) => {
+        const updatedBooks = books.map((book) => {
+            if (book.id === id) {
+                return { ...book, title: newTitle };
+            }
+            return book;
+        });
+        setBooks(updatedBooks);
+    };
+
+
+
     //function to delete record from child comp
     //filter method doesn't modify original array, it recreates new array instead called book here in return.
-
     const deleteBookById = (id) => {
         const updatedBooks = books.filter((book) => {
             return book.id !== id;
@@ -44,7 +57,7 @@ function App() {
     return <div className='app'>
         {/* need to find out why books.length gets updated length ? */}
         {/* {books.length} */}
-        <BookList books={books} onDelete={deleteBookById} />
+        <BookList books={books} onDelete={deleteBookById} onEdit={editBookById} />
         <BookCreate onCreate={createBook} />
 
     </div>

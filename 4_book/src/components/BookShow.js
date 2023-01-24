@@ -1,20 +1,25 @@
 import BookEdit from './BookEdit';
 import { useState } from "react";
 
-function BookShow({ book, onDelete }) {
+function BookShow({ book, onDelete, onEdit }) {
     const [showEdit, setShowEdit] = useState(false);
-
+    // delete child book show component, with the use of this handler
     const handleDeleteClick = () => {
         onDelete(book.id);
     };
 
+    // edit child book show comp , with the use of this handler
     const handleEditClick = () => {
         setShowEdit(!showEdit);
+    }
+    // to  close form on update, with this handler
+    const handleSubmit = () => {
+        setShowEdit(false);
     }
 
     let content = <h3>{book.title}</h3>;
     if (showEdit) {
-        content = <BookEdit book={book} />;
+        content = <BookEdit book={book} onEdit={onEdit} onSubmit={handleSubmit} />;
     }
 
 
