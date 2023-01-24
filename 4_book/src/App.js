@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import BookCreate from './components/BookCreate';
 import BookList from './components/BookList';
+import axios from 'axios';
 
 function App() {
     const [books, setBooks] = useState([]);
@@ -32,28 +33,27 @@ function App() {
     };
 
 
-    const createBook = (title) => {
+    const createBook = async (title) => {
         //Bad Code practise for updating array on state change
         // books.push({id: 14, title: title});
         // console.log(books);
         // setBooks(books);
 
         //updating book list
+        //making network request to post 
+        const response = await axios.post('http://localhost:3001/books', {
+            title
+        });
+
+        // console.log(response);
         const updatedBooks = [
             ...books,
-            {
-                id: Math.round(Math.random() * 9999),
-                title: title
-            },
-
+            response.data
         ];
         setBooks(updatedBooks);
-        console.log(books);
-        console.log(books.length);
-        console.log(updatedBooks);
-        console.log(updatedBooks.length);
-        console.log('Need to add book with', title)
     };
+
+
     return <div className='app'>
         <h1>Reading List</h1>
         {/* need to find out why books.length gets updated length ? */}
@@ -62,6 +62,6 @@ function App() {
         <BookCreate onCreate={createBook} />
 
     </div>
-}
+};
 
 export default App;
