@@ -1,0 +1,25 @@
+### Get all books
+GET http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+### POST to books
+
+POST http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Sabil Shrestha"
+}
+ 
+### edit to book
+PUT http://localhost:3001/books/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Pemba Lama"
+  
+}
+
+### delete the record on book with id 1
+DELETE http://localhost:3001/books/1 HTTP/1.1
+Content-Type: application/json
