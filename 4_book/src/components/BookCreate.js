@@ -5,6 +5,7 @@ function BookCreate({ onCreate }) {
 
     //watch for change on input form
     const handleChange = (event) => {
+        // console.log(event.target.value);
         setTitle(event.target.value);
     };
 

@@ -1,28 +1,12 @@
 {
   "books": [
     {
-      "title": "Nepali",
+      "title": "Science",
+      "id": 1
+    },
+    {
+      "title": "English",
       "id": 2
-    },
-    {
-      "title": "Environment",
-      "id": 3
-    },
-    {
-      "title": "Arts",
-      "id": 6
-    },
-    {
-      "title": "Arts",
-      "id": 7
-    },
-    {
-      "title": "Traffic",
-      "id": 8
-    },
-    {
-      "title": "Urban Planning",
-      "id": 9
     }
   ]
 }

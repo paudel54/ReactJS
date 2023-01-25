@@ -28,7 +28,7 @@ function App() {
             title: newTitle
         });
 
-        console.log(response);
+        // console.log(response);
 
         const updatedBooks = books.map((book) => {
             if (book.id === id) {
@@ -68,6 +68,7 @@ function App() {
         });
 
         // console.log(response);
+        // response.data => {title:'text input', id:1}
         const updatedBooks = [
             ...books,
             response.data
@@ -80,6 +81,7 @@ function App() {
         <h1>Reading List</h1>
         {/* need to find out why books.length gets updated length ? */}
         {/* {books.length} */}
+
         <BookList books={books} onDelete={deleteBookById} onEdit={editBookById} />
         <BookCreate onCreate={createBook} />
 
