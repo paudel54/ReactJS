@@ -1,11 +1,15 @@
 import BookEdit from './BookEdit';
-import { useState } from "react";
+import { useState, useContext } from "react";
+import BooksContext from '../context/books';
 
-function BookShow({ book, onDelete, onEdit }) {
+function BookShow({ book }) {
     const [showEdit, setShowEdit] = useState(false);
+    // use context 
+    const { deleteBookById } = useContext(BooksContext);
+
     // delete child book show component, with the use of this handler
     const handleDeleteClick = () => {
-        onDelete(book.id);
+        deleteBookById(book.id);
     };
 
     // edit child book show comp , with the use of this handler
@@ -13,9 +17,8 @@ function BookShow({ book, onDelete, onEdit }) {
         setShowEdit(!showEdit);
     }
     // to  close form on update, with this handler
-    const handleSubmit = (id, newTitle) => {
+    const handleSubmit = () => {
         setShowEdit(false);
-        onEdit(id, newTitle);
     }
 
     let content = <h3>{book.title}</h3>;
