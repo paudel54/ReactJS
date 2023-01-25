@@ -1,16 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BookCreate from './components/BookCreate';
 import BookList from './components/BookList';
 import axios from 'axios';
+
 
 function App() {
     const [books, setBooks] = useState([]);
     //event handler to pass as prop
     //for custom event handler we can pass prop name of our choice
 
+    const fetchBooks = async () => {
+        const response = await axios.get('http://localhost:3001/books');
+        // returns list of data so response.data to access list
+        setBooks(response.data);
+    };
+    // not to do call fetchBooks(); here, it creates infinite network request, which is very bad practice
+
+    // implemented useEffect, to render the server stored info on start up only once
+    useEffect(() => {
+        fetchBooks();
+    }, []);
+
     //fn to edit book from child comp into parent.
     //update element with map function.
-    const editBookById = (id, newTitle) => {
+    const editBookById = async (id, newTitle) => {
+        const response = await axios.put(`http://localhost:3001/books/${id}`, {
+            title: newTitle
+        });
+
+        console.log(response);
+
         const updatedBooks = books.map((book) => {
             if (book.id === id) {
                 return { ...book, title: newTitle };
