@@ -32,7 +32,8 @@ function App() {
 
         const updatedBooks = books.map((book) => {
             if (book.id === id) {
-                return { ...book, title: newTitle };
+                // auto update with API response
+                return { ...book, ...response.data };
             }
             return book;
         });
@@ -43,7 +44,9 @@ function App() {
 
     //function to delete record from child comp
     //filter method doesn't modify original array, it recreates new array instead called book here in return.
-    const deleteBookById = (id) => {
+    const deleteBookById = async (id) => {
+        await axios.delete(`http://localhost:3001/books/${id}`);
+
         const updatedBooks = books.filter((book) => {
             return book.id !== id;
         });
