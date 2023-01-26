@@ -1,40 +1,28 @@
 {
   "books": [
     {
-      "title": "Social",
+      "title": "Nepali",
       "id": 2
     },
     {
-      "title": "Physics",
+      "title": "Environment",
       "id": 3
     },
     {
-      "title": "Agriculture",
-      "id": 4
+      "title": "Arts",
+      "id": 6
     },
     {
-      "title": "English",
+      "title": "Arts",
       "id": 7
     },
     {
-      "title": "Account",
+      "title": "Traffic",
       "id": 8
     },
     {
-      "title": "Finance",
+      "title": "Urban Planning",
       "id": 9
-    },
-    {
-      "title": "Wild Life Research",
-      "id": 10
-    },
-    {
-      "title": "Meditation",
-      "id": 11
-    },
-    {
-      "title": "Ecology",
-      "id": 12
     }
   ]
 }

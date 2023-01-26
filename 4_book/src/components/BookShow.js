@@ -1,15 +1,11 @@
 import BookEdit from './BookEdit';
-import { useState, useContext } from "react";
-import BooksContext from '../context/books';
+import { useState } from "react";
 
-function BookShow({ book }) {
+function BookShow({ book, onDelete, onEdit }) {
     const [showEdit, setShowEdit] = useState(false);
-    // use context 
-    const { deleteBookById } = useContext(BooksContext);
-
     // delete child book show component, with the use of this handler
     const handleDeleteClick = () => {
-        deleteBookById(book.id);
+        onDelete(book.id);
     };
 
     // edit child book show comp , with the use of this handler
@@ -17,8 +13,9 @@ function BookShow({ book }) {
         setShowEdit(!showEdit);
     }
     // to  close form on update, with this handler
-    const handleSubmit = () => {
+    const handleSubmit = (id, newTitle) => {
         setShowEdit(false);
+        onEdit(id, newTitle);
     }
 
     let content = <h3>{book.title}</h3>;
@@ -27,10 +24,8 @@ function BookShow({ book }) {
             onSubmit={handleSubmit} />;
     }
 
-    // console.log(book);
 
     return <div className="book-show">
-
         {/* adding images  solving bugs with diff link*/}
         <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
         {/* {book.title} */}

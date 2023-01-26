@@ -1,19 +1,45 @@
-import BookShow from './BookShow';
-import useBooksContext from '../hooks/use-books-context';
+import BookEdit from './BookEdit';
+import { useState } from "react";
+
+function BookShow({ book, onDelete, onEdit }) {
+    const [showEdit, setShowEdit] = useState(false);
+    // delete child book show component, with the use of this handler
+    const handleDeleteClick = () => {
+        onDelete(book.id);
+    };
+
+    // edit child book show comp , with the use of this handler
+    const handleEditClick = () => {
+        setShowEdit(!showEdit);
+    }
+    // to  close form on update, with this handler
+    const handleSubmit = (id, newTitle) => {
+        setShowEdit(false);
+        onEdit(id, newTitle);
+    }
+
+    let content = <h3>{book.title}</h3>;
+    if (showEdit) {
+        content = <BookEdit book={book}
+            onSubmit={handleSubmit} />;
+    }
 
 
-function BookList() {
-
-    const { books } = useBooksContext();
-
-    const renderedBooks = books.map((book) => {
-        return <BookShow key={book.id} book={book} />
-    })
-
-    return <div className='book-list'>
-
-        {renderedBooks}
+    return <div className="book-show">
+        {/* adding images  solving bugs with diff link*/}
+        <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
+        {/* {book.title} */}
+        {/* to make toggle functional we set content here */}
+        <div>{content}</div>
+        <div className="actions">
+            <button className="edit" onClick={handleEditClick}>
+                Edit
+            </button>
+            <button className="delete" onClick={handleDeleteClick}>
+                delete
+            </button>
+        </div>
     </div>
 }
 
-export default BookList; 
+export default BookShow;

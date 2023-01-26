@@ -1,19 +1,16 @@
-import { useState, useContext } from "react";
-import BooksContext from "../context/books";
+import { useState } from "react";
 
-function BookCreate() {
+function BookCreate({ onCreate }) {
     const [title, setTitle] = useState('');
-    // pullout createBook fn form context, books.js
-    const { createBook } = useContext(BooksContext);
+
     //watch for change on input form
     const handleChange = (event) => {
-        // console.log(event.target.value);
         setTitle(event.target.value);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        createBook(title);
+        onCreate(title);
         //when form gets submitted form input feild we want impur field to be empty
         //This is acheive by making setter function empty
         setTitle('')
