@@ -1,4 +1,14 @@
-import PropTypes from 'prop-types';
+// We built the custom lib so this impport is useless so i comment here
+// import PropTypes from 'prop-types';
+
+import className from 'classnames';
+
+const finalClassName = className('px-1.5', {
+    'bg-blue-500': true,
+    'text-yellow-500': false,
+});
+
+console.log(finalClassName);
 
 // here children in arg auto receives the probs of Button , say the text inside button passed from the App.js comp files. 
 // here function props will be passed down and validated its type by fn.PropTypes 
@@ -17,6 +27,7 @@ function Button(
 }
 
 //adding custom key to this prop object
+// since it's custom we dont' need to import lib
 // prop type js lib, old days, pass prop of boolean, helper library , still popular but typescript ruled today
 // custom validation feature, we mark only one of the primary,sec,success,waring,danger is true
 Button.propTypes = {
