@@ -8,4 +8,4 @@ const el = document.getElementById('root');
 const root = ReactDOM.createRoot(el);
 
 // rendering App components
-root.render(<App />);
+root.render(<App />); 
