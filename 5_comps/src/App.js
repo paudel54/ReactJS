@@ -1,20 +1,34 @@
 import Button from './Button';
+// import {iconName} from 'react-icons/go';
+import { GoBell, GoCloudDownload, GoDatabase } from 'react-icons/go';
 
 function App() {
+    const handleClick = () => {
+        console.log('Click!!');
+    }
+
     return (
         <div>
             <div>
-                <Button success rounded outline >
+                {/* here onClick is builtin handler */}
+                <Button secondary rounded outline onClick={handleClick} className="mb-5">
+                    {/* to display icon we use here as component */}
+                    <GoBell />
                     Click me!!
                 </Button>
             </div>
             <div>
-                <Button danger outline>
+                {/* Here onMouseEnter is builtin Handler */}
+                <Button danger outline onMouseEnter={handleClick}>
+                    <GoCloudDownload />
                     Buy Now!
                 </Button>
             </div>
             <div>
-                <Button warning>See Deal!</Button>
+                <Button warning>
+                    <GoDatabase />
+                    See Deal!
+                </Button>
             </div>
             <div>
                 <Button secondary outline>
@@ -22,7 +36,7 @@ function App() {
                 </Button>
             </div>
             <div>
-                <Button secondary rounded>
+                <Button primary rounded>
                     Something!
                 </Button>
             </div>
