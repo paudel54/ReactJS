@@ -17,7 +17,7 @@ function Accordion({ items }) {
     // }
     const renderedItems = items.map((item, index) => {
         const isExpanded = index === expandedIndex;
-        const content = isExpanded && <div>{item.content}</div>
+        // const content = isExpanded && <div>{item.content}</div>
 
         // console.log(isExpanded);
         // console.log(content);
@@ -25,9 +25,11 @@ function Accordion({ items }) {
             // on building list the parent div must possess id, that may in future come from external api or anythings,
 
             <div key={item.id}>
-
-                <div>{item.label}</div>
-                {content}
+                {/*  WITH MAP fn we are creating numbers of multiple event handlers*/}
+                {/* one for every single objects inside of items array*/}
+                <div onClick={() => setExpandedIndex(index)}>{item.label}</div>
+                {/* passing condition directly into a return,this helps in omitting variable */}
+                {isExpanded && <div>{item.content}</div>}
             </div>
         );
 
