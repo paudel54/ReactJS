@@ -17,16 +17,17 @@ function Accordion({ items }) {
     // }
     const renderedItems = items.map((item, index) => {
         const isExpanded = index === expandedIndex;
-        console.log(isExpanded);
+        const content = isExpanded && <div>{item.content}</div>
 
-
+        // console.log(isExpanded);
+        // console.log(content);
         return (
             // on building list the parent div must possess id, that may in future come from external api or anythings,
 
             <div key={item.id}>
 
                 <div>{item.label}</div>
-                <div>{item.content}</div>
+                {content}
             </div>
         );
 
