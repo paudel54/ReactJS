@@ -26,6 +26,9 @@ function Accordion({ items }) {
         // const content = isExpanded && <div>{item.content}</div>
         // console.log(isExpanded);
         // console.log(content);
+        const icon = <span>
+            {isExpanded ? 'DOWN ' : 'LEFT '}
+        </span>
         return (
             // on building list the parent div must possess id, that may in future come from external api or anythings,
 
@@ -37,7 +40,10 @@ function Accordion({ items }) {
                     setExpandedIndex(index)
                 }}>{item.label}</div> */}
                 {/* Alternative method above mentioned on func */}
-                <div onClick={() => handleClick(index)}>{item.label}</div>
+                <div onClick={() => handleClick(index)}>
+                    {icon}
+                    {item.label}
+                </div>
 
 
                 {/* passing condition directly into a return,this helps in omitting variable */}
