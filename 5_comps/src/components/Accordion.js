@@ -1,6 +1,7 @@
 // more learning of react state system
 import { useState } from 'react';
-
+// these icon imports are react components and must be used on that manner upon implementation.
+import { GoChevronLeft, GoChevronDown } from "react-icons/go";
 // created component named Accordion.
 function Accordion({ items }) {
     // state var and setter fn for expandedIndex, with  a default value 0. i,e first obj ati 0 index will be 
@@ -27,8 +28,8 @@ function Accordion({ items }) {
         // console.log(isExpanded);
         // console.log(content);
         const icon = <span>
-            {isExpanded ? 'DOWN ' : 'LEFT '}
-        </span>
+            {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
+        </span >
         return (
             // on building list the parent div must possess id, that may in future come from external api or anythings,
 
