@@ -27,7 +27,7 @@ function Accordion({ items }) {
         // const content = isExpanded && <div>{item.content}</div>
         // console.log(isExpanded);
         // console.log(content);
-        const icon = <span>
+        const icon = <span className='text-2xl'>
             {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
         </span >
         return (
@@ -41,20 +41,21 @@ function Accordion({ items }) {
                     setExpandedIndex(index)
                 }}>{item.label}</div> */}
                 {/* Alternative method above mentioned on func */}
-                <div onClick={() => handleClick(index)}>
-                    {icon}
+                <div className='flex justify-between p-3 bg-gray-50 border-b items-center cursor-pointer ' onClick={() => handleClick(index)}>
+
                     {item.label}
+                    {icon}
                 </div>
 
 
                 {/* passing condition directly into a return,this helps in omitting variable */}
-                {isExpanded && <div>{item.content}</div>}
+                {isExpanded && <div className='border-b p-5'>{item.content}</div>}
             </div>
         );
 
     });
 
-    return <div>
+    return <div className='border-x border-t rounded'>
         {renderedItems}
     </div>;
 }
