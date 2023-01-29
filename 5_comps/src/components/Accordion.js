@@ -19,7 +19,11 @@ function Accordion({ items }) {
     // {/* Alternative Ways */ }
 
     const handleClick = (nextIndex) => {
-        setExpandedIndex(nextIndex);
+        if (expandedIndex === nextIndex) {
+            setExpandedIndex(-1);
+        } else {
+            setExpandedIndex(nextIndex);
+        }
     };
 
     const renderedItems = items.map((item, index) => {
@@ -41,7 +45,8 @@ function Accordion({ items }) {
                     setExpandedIndex(index)
                 }}>{item.label}</div> */}
                 {/* Alternative method above mentioned on func */}
-                <div className='flex justify-between p-3 bg-gray-50 border-b items-center cursor-pointer ' onClick={() => handleClick(index)}>
+                <div className='flex justify-between p-3 bg-gray-50 border-b items-center cursor-pointer '
+                    onClick={() => handleClick(index)}>
 
                     {item.label}
                     {icon}
