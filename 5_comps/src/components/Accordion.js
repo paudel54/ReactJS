@@ -15,10 +15,15 @@ function Accordion({ items }) {
     // } else {
     //     console.log('collapsed');
     // }
+    // {/* Alternative Ways */ }
+
+    const handleClick = (nextIndex) => {
+        setExpandedIndex(nextIndex);
+    };
+
     const renderedItems = items.map((item, index) => {
         const isExpanded = index === expandedIndex;
         // const content = isExpanded && <div>{item.content}</div>
-
         // console.log(isExpanded);
         // console.log(content);
         return (
@@ -27,7 +32,14 @@ function Accordion({ items }) {
             <div key={item.id}>
                 {/*  WITH MAP fn we are creating numbers of multiple event handlers*/}
                 {/* one for every single objects inside of items array*/}
-                <div onClick={() => setExpandedIndex(index)}>{item.label}</div>
+                {/* <div onClick={() => {
+                    console.log('Can add more event Handlers');
+                    setExpandedIndex(index)
+                }}>{item.label}</div> */}
+                {/* Alternative method above mentioned on func */}
+                <div onClick={() => handleClick(index)}>{item.label}</div>
+
+
                 {/* passing condition directly into a return,this helps in omitting variable */}
                 {isExpanded && <div>{item.content}</div>}
             </div>
