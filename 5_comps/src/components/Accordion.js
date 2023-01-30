@@ -10,7 +10,7 @@ function Accordion({ items }) {
     const [expandedIndex, setExpandedIndex] = useState(0);
 
     // type 1 to map and access
-    // const renderedItems = items.map((item, index) => {
+    // const renderedItems = items.map((item, index) => { 
     // if (index === expandedIndex) {
     //     console.log('expanded');
     // } else {
@@ -18,13 +18,29 @@ function Accordion({ items }) {
     // }
     // {/* Alternative Ways */ }
 
+    // Delayed state updates so, doing it more professionally
     const handleClick = (nextIndex) => {
+        console.log(expandedIndex);
         if (expandedIndex === nextIndex) {
             setExpandedIndex(-1);
         } else {
             setExpandedIndex(nextIndex);
         }
     };
+
+    // Functional State Updates
+    // const handleClick = (nextIndex) => {
+    //     console.log('Stale version of expandedIndex', expandedIndex)
+    //     setExpandedIndex((currentExpandedIndex) => {
+    //         console.log('Upto Date Version', currentExpandedIndex);
+    //         if (currentExpandedIndex === nextIndex) {
+    //             return -1;
+    //         }
+    //         else {
+    //             return nextIndex;
+    //         }
+    //     });
+    // };
 
     const renderedItems = items.map((item, index) => {
         const isExpanded = index === expandedIndex;
