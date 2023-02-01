@@ -30,13 +30,15 @@ function Dropdown({ options, selection, onSelect }) {
     });
 
 
-    let content = 'Select.........';
-    if (selection) {
-        content = selection.label;
-    }
+    // let content = 'Select.........';
+    // // if selection is not null in defalut update the content with the clicked label
+    // if (selection) {
+    //     content = selection.label;
+    // }
+    // Refactoring a code snippet
 
     return <div onClick={handleClick}>
-        {content}
+        {selection?.label || 'Select ....'}
         {/* adding logic to hide and show txt */}
         {isOpen && <div> {renderedOptions}</div>}
     </div>
