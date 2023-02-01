@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Dropdown({ options }) {
+function Dropdown({ options, selection, onSelect }) {
     const [isOpen, setIsOpen] = useState(false);
     // event handler
     const handleClick = () => {
@@ -14,7 +14,9 @@ function Dropdown({ options }) {
         // close dropdown
         //  what option did the use clicked?
         setIsOpen(!isOpen);
-        console.log(option);
+        // console.log(option);
+        // rerenders element as it calles event handler on app.js which makes communnication to parent
+        onSelect(option);
     }
 
     const renderedOptions = options.map((option) => {
@@ -27,8 +29,14 @@ function Dropdown({ options }) {
         </div>
     });
 
+
+    let content = 'Select.........';
+    if (selection) {
+        content = selection.label;
+    }
+
     return <div onClick={handleClick}>
-        Select....
+        {content}
         {/* adding logic to hide and show txt */}
         {isOpen && <div> {renderedOptions}</div>}
     </div>
