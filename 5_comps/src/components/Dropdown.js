@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { GoChevronDown } from "react-icons/go";
+import Panel from './Panel';
+
 function Dropdown({ options, value, onChange }) {
     const [isOpen, setIsOpen] = useState(false);
     // event handler
@@ -38,14 +40,15 @@ function Dropdown({ options, value, onChange }) {
     // Refactoring a code snippet
 
     return <div className="w-48 relative">
-        <div className='flex justify-between items-center cursor-pointer border rounded p-3 shadow bg-white w-full' onClick={handleClick}>
+        <Panel className='flex justify-between items-center cursor-pointer ' onClick={handleClick}>
             {/* if selection is null, it returns undefined therby 'Select... would come here */}
             {value?.label || 'Select ....'}
             {/* we can use react icon as a component */}
             <GoChevronDown className='text-lg' />
-            {/* adding logic to hide and show txt */}
-            {isOpen && <div className='absolute top-full  -ml-3 border rounded p-3 shadow bg-white w-full'> {renderedOptions}</div>}
-        </div>
+        </Panel>
+        {/* adding logic to hide and show txt */}
+        {isOpen && <Panel className='absolute top-full'> {renderedOptions}</Panel>}
+
     </div>
 
 }
