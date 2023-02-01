@@ -25,7 +25,7 @@ function App() {
 
 
     // Passed prop(selection) & handler(handleSelection) from parent to child dropdown.
-    return <Dropdown options={options} selection={selection} onSelect={handleSelection} />;
+    return <Dropdown options={options} value={selection} onChange={handleSelection} />;
 }
 
 export default App;

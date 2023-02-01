@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Dropdown({ options, selection, onSelect }) {
+function Dropdown({ options, value, onChange }) {
     const [isOpen, setIsOpen] = useState(false);
     // event handler
     const handleClick = () => {
@@ -16,7 +16,7 @@ function Dropdown({ options, selection, onSelect }) {
         setIsOpen(!isOpen);
         // console.log(option);
         // rerenders element as it calles event handler on app.js which makes communnication to parent
-        onSelect(option);
+        onChange(option);
     }
 
     const renderedOptions = options.map((option) => {
@@ -38,7 +38,8 @@ function Dropdown({ options, selection, onSelect }) {
     // Refactoring a code snippet
 
     return <div onClick={handleClick}>
-        {selection?.label || 'Select ....'}
+        {/* if selection is null, it returns undefined therby 'Select... would come here */}
+        {value?.label || 'Select ....'}
         {/* adding logic to hide and show txt */}
         {isOpen && <div> {renderedOptions}</div>}
     </div>
