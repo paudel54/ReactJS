@@ -1,12 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { GoChevronDown } from "react-icons/go";
 import Panel from './Panel';
 
 function Dropdown({ options, value, onChange }) {
     const [isOpen, setIsOpen] = useState(false);
+    // implemention of useRef
+    const divEl = useRef();
     useEffect(() => {
         const handler = (event) => {
-            console.log(event.target)
+
+            if (!divEl.current) {
+                return;
+            }
+            // console.log(event.target)
+            // divEl returns the object along with it so divEl.current shows up the current div
+            // console.log(divEl.current);
+            // if we click outside the targeted div the dropdown will be closed.
+            if (!divEl.current.contains(event.target)) {
+                setIsOpen(false);
+            }
         }
         document.addEventListener('click', handler, true)
         // useEffect cleanUp to prevent Memory Leaks
@@ -51,8 +63,8 @@ function Dropdown({ options, value, onChange }) {
     //     content = selection.label;
     // }
     // Refactoring a code snippet
-
-    return <div className="w-48 relative">
+    // passing ref as prop
+    return <div ref={divEl} className="w-48 relative">
         <Panel className='flex justify-between items-center cursor-pointer  ' onClick={handleClick}>
             {/* if selection is null, it returns undefined therby 'Select... would come here */}
             {value?.label || 'Select ....'}
