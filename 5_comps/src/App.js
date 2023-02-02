@@ -25,7 +25,11 @@ function App() {
 
 
     // Passed prop(selection) & handler(handleSelection) from parent to child dropdown.
-    return <Dropdown options={options} value={selection} onChange={handleSelection} />;
+    return <div className="flex">
+        <Dropdown options={options} value={selection} onChange={handleSelection} />
+
+    </div>
+
 }
 
 export default App;

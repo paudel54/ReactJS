@@ -1,17 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { GoChevronDown } from "react-icons/go";
 import Panel from './Panel';
 
 function Dropdown({ options, value, onChange }) {
     const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+        const handler = (event) => {
+            console.log(event.target)
+        }
+        document.addEventListener('click', handler, true)
+        // useEffect cleanUp to prevent Memory Leaks
+        return () => {
+            document.removeEventListener('click', handler);
+        };
+
+    }, []);
     // event handler
     const handleClick = () => {
         // if false true if true false, !isOpen => notisOpen
         // functional appraoch: setIsOpen((currentIsOpen)=> !currentIsOpen);
         setIsOpen(!isOpen);
     };
+    // window.timeTwo = performance.now();
     // Here option is an arugument variable
     const handleOptionClick = (option) => {
+        // window.timeOne = performance.now();
         // console.log('I should Close');
         // close dropdown
         //  what option did the use clicked?
@@ -40,7 +53,7 @@ function Dropdown({ options, value, onChange }) {
     // Refactoring a code snippet
 
     return <div className="w-48 relative">
-        <Panel className='flex justify-between items-center cursor-pointer ' onClick={handleClick}>
+        <Panel className='flex justify-between items-center cursor-pointer  ' onClick={handleClick}>
             {/* if selection is null, it returns undefined therby 'Select... would come here */}
             {value?.label || 'Select ....'}
             {/* we can use react icon as a component */}
@@ -52,4 +65,6 @@ function Dropdown({ options, value, onChange }) {
     </div>
 
 }
-export default Dropdown; 
+export default Dropdown;
+
+
