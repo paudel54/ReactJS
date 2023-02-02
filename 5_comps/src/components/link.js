@@ -6,11 +6,17 @@ function Link({ to, children }) {
     // useContext(NavigationContext) returns objects, we only care navigation fn
     const { navigate } = useContext(NavigationContext)
     // console.log(useContext(NavigationContext));
+
+
     const handleClick = (event) => {
+        // implemented on click, open new tab and navigate functionality!
+        if (event.metaKey || event.ctrlKey) {
+            return;
+        }
         event.preventDefault();
         navigate(to);
     };
-    return <a onClick={handleClick} href>{children}</a>
+    return <a onClick={handleClick} href={to}>{children}</a>
 }
 
 export default Link;
