@@ -8,7 +8,7 @@ function Dropdown({ options, value, onChange }) {
     const divEl = useRef();
     useEffect(() => {
         const handler = (event) => {
-
+            // check to control small bugs. 
             if (!divEl.current) {
                 return;
             }

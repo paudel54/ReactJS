@@ -9,4 +9,4 @@ function Panel({ children, className, ...rest }) {
     return (<div {...rest} className={finalClassName}>{children}</div>);
 }
 
-export default Panel;
+export default Panel; 
