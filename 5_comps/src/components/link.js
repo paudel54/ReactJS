@@ -3,12 +3,16 @@ import useNavigation from "../hooks/use-navigation";
 
 import classNames from "classnames";
 
-function Link({ to, children }) {
+function Link({ to, children, className, activeClassName }) {
     // useContext(NavigationContext) returns objects, we only care navigation fn
-    const { navigate } = useNavigation();
+    const { navigate, currentPath } = useNavigation();
     // console.log(useContext(NavigationContext));
 
-    const classes = classNames('text-blue-500')
+    const classes = classNames(
+        'text-blue-500',
+        className,
+        currentPath === to && activeClassName
+    );
 
     const handleClick = (event) => {
         // implemented on click, open new tab and navigate functionality!
