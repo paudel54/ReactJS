@@ -1,11 +1,11 @@
 // consider this receives 2 major props to, to receive link address and children to receive text on anchor element
-import { useContext } from "react";
-import NavigationContext from "../context/navigation";
+import useNavigation from "../hooks/use-navigation";
+
 import classNames from "classnames";
 
 function Link({ to, children }) {
     // useContext(NavigationContext) returns objects, we only care navigation fn
-    const { navigate } = useContext(NavigationContext)
+    const { navigate } = useNavigation();
     // console.log(useContext(NavigationContext));
 
     const classes = classNames('text-blue-500')
