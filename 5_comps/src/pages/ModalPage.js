@@ -30,6 +30,7 @@ function ModalPage() {
             </Button>
             {/* shows first false value:blank and last truty value when clicked */}
             {showModal && modal}
+
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptatum neque tempora molestias inventore nostrum officia voluptatibus a nisi fugit impedit, exercitationem rerum saepe hic repellat assumenda magni, unde nihil.
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti adipisci velit tempora ducimus quas blanditiis, explicabo fugit omnis optio iste corporis ad ipsum iure tenetur architecto similique, voluptatibus cum excepturi.
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci aliquam tempore consequuntur architecto sunt culpa ut qui, aperiam earum illo. Iusto dolores quaerat recusandae ipsum officia exercitationem suscipit non voluptate?
