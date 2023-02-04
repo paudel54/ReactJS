@@ -9,7 +9,8 @@ function ModalPage() {
     };
 
     return (
-        <div>
+        // <div className='relative'>
+        <div >
             <Button onClick={handleClick} primary>
                 Open Modal
             </Button>
