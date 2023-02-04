@@ -8,6 +8,10 @@ function ModalPage() {
         setShowModal(true);
     };
 
+    const handleClose = () => {
+        setShowModal(false);
+    }
+
     return (
         // <div className='relative'>
         <div >
@@ -15,7 +19,7 @@ function ModalPage() {
                 Open Modal
             </Button>
             {/* shows first false value:blank and last truty value when clicked */}
-            {showModal && <Modal />}
+            {showModal && <Modal onClose={handleClose} />}
         </div>
     );
 }
