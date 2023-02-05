@@ -13,9 +13,19 @@ function TablePage() {
     ];
     // config data aray to make table header more dynamic passing to table.js child comp 
     const config = [
-        { label: 'Name' },
-        { label: 'Color' },
-        { label: 'Score' }
+        {
+            // For the first table column
+            label: 'Name',
+            render: (fruit) => fruit.name
+        },
+        {
+            label: 'Color',
+            render: (fruit) => fruit.color
+        },
+        {
+            label: 'Score',
+            render: (fruit) => fruit.score
+        },
     ];
     return <div>
         {/* Passing data as prob Name data */}
