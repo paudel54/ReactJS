@@ -1,6 +1,7 @@
 // Parent of Table is TablePage we add config file to create dynamic table 
 
-import Table from '../components/Table';
+// import Table from '../components/Table';
+import SortableTable from '../components/SortableTable';
 
 function TablePage() {
     // Created data  witth list of obj to populate later.
@@ -16,7 +17,8 @@ function TablePage() {
         {
             // For the first table column
             label: 'Name',
-            render: (fruit) => fruit.name
+            render: (fruit) => fruit.name,
+            sortValue: (fruit) => fruit.name
         },
         {
             label: 'Color',
@@ -25,14 +27,15 @@ function TablePage() {
         },
         {
             label: 'Score',
-            render: (fruit) => fruit.score
+            render: (fruit) => fruit.score,
+            sortValue: (fruit) => fruit.score,
         },
-        {
-            label: 'Sansrit',
-            render: (fruit) => fruit.score ** 2,
-            header: () => <th className="bg-red-500">Score</th>,
+        // {
+        //     label: 'Sansrit',
+        //     render: (fruit) => fruit.score ** 2,
+        //     header: () => <th className="bg-red-500">Score</th>,
 
-        }
+        // }
     ];
 
     const keyFn = (fruit) => {
@@ -42,7 +45,7 @@ function TablePage() {
     return <div>
         {/* Passing data as prob Name data */}
         {/* passing array of object as  prop ot table comp the child */}
-        <Table data={data} config={config} keyFn={keyFn} />
+        <SortableTable data={data} config={config} keyFn={keyFn} />
     </div>
 }
 
