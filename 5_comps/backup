@@ -1,35 +1,85 @@
-// Parent Component Dropdown
-import { useState } from "react";
-import Dropdown from "./components/Dropdown";
+// // Parent Component Dropdown
+// import { useState } from "react";
+// import Dropdown from "./components/Dropdown";
 
-function App() {
-    // by default nothing have been selected. 
-    const [selection, setSelection] = useState(null);
-    // Creating event handler , that passes to parent  when sate changes
-    // we are receiving newly selected option and updating the state.
-    const handleSelection = (option) => {
-        setSelection(option);
-    };
+// function App() {
+//     // by default nothing have been selected. 
+//     const [selection, setSelection] = useState(null);
+//     // Creating event handler , that passes to parent  when sate changes
+//     // we are receiving newly selected option and updating the state.
+//     const handleSelection = (option) => {
+//         setSelection(option);
+//     };
 
-    const options = [
-        {
-            label: 'Red', value: 'red'
-        },
-        {
-            label: 'Green', value: 'green'
-        },
-        {
-            label: 'Blue', value: 'blue'
-        }
-    ];
+//     const options = [
+//         {
+//             label: 'Red', value: 'red'
+//         },
+//         {
+//             label: 'Green', value: 'green'
+//         },
+//         {
+//             label: 'Blue', value: 'blue'
+//         }
+//     ];
 
 
-    // Passed prop(selection) & handler(handleSelection) from parent to child dropdown.
-    return <div className="flex">
-        <Dropdown options={options} value={selection} onChange={handleSelection} />
+//     // Passed prop(selection) & handler(handleSelection) from parent to child dropdown.
+//     return <div className="flex">
+//         <Dropdown options={options} value={selection} onChange={handleSelection} />
 
-    </div>
+//     </div>
 
+// }
+
+// export default App;
+
+
+// Sorting
+
+// JS comparator fn, understandas how we want to sort in array.
+
+// const data1 = [5, 10, 4, 3]
+// // comparator function solves this anamolies.
+// data.sort((a, b) => {
+//     return a - b;
+// });
+
+// const data1 = ['t', 'A', 'a', 'B', 'b'];
+
+// data.sort((a, b) => {
+//     return a.localeCompare(b);
+// });
+// // ['a', 'A', 'b', 'B', 't'
+
+// sorting objects
+
+const data = [
+    { name: 'Tomato', cost: 10, weight: 5 },
+    { name: 'Carrot', cost: 15, weight: 2 },
+    { name: 'Onion', cost: 5, weight: 7 },
+
+];
+
+// transform Step for one particular property object sorting 
+function getSortValue(vegetable) {
+    return vegetable.cost;
 }
+// sorting final
 
-export default App;
+const sortOrder = 'asc'
+
+data.sort((a, b) => {
+    const valueA = getSortValue(a);
+    const valueB = getSortValue(b);
+
+    const reverseOrder = sortOrder === 'asc' ? 1 : -1;
+
+    if (typeof valueA === 'string') {
+        return (valueA.localeCompare(valueB)) * reverseOrder;
+    } else {
+        return (valueA - valueB) * reverseOrder
+        //    (return valueA - valueB )*-1 swapp decending
+    }
+
+});
