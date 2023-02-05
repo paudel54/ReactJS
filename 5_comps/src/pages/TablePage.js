@@ -26,6 +26,10 @@ function TablePage() {
             label: 'Score',
             render: (fruit) => fruit.score
         },
+        {
+            label: 'Sansrit',
+            render: (fruit) => fruit.score ** 2,
+        }
     ];
     return <div>
         {/* Passing data as prob Name data */}
