@@ -20,7 +20,8 @@ function TablePage() {
         },
         {
             label: 'Color',
-            render: (fruit) => fruit.color
+            // render: (fruit) => fruit.color
+            render: (fruit) => <div className={`p-3 m-2 ${fruit.color}`}></div>
         },
         {
             label: 'Score',
@@ -31,10 +32,15 @@ function TablePage() {
             render: (fruit) => fruit.score ** 2,
         }
     ];
+
+    const keyFn = (fruit) => {
+        return fruit.name;
+    };
+
     return <div>
         {/* Passing data as prob Name data */}
         {/* passing array of object as  prop ot table comp the child */}
-        <Table data={data} config={config} />
+        <Table data={data} config={config} keyFn={keyFn} />
     </div>
 }
 
