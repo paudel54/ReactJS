@@ -1,3 +1,5 @@
+// Parent of Table is TablePage we add config file to create dynamic table 
+
 import Table from '../components/Table';
 
 function TablePage() {
@@ -9,9 +11,16 @@ function TablePage() {
         { name: 'Lime', color: 'bg-green-500', score: 4 },
 
     ];
+    // config data aray to make table header more dynamic passing to table.js child comp 
+    const config = [
+        { label: 'Name' },
+        { label: 'Color' },
+        { label: 'Score' }
+    ];
     return <div>
         {/* Passing data as prob Name data */}
-        <Table data={data} />
+        {/* passing array of object as  prop ot table comp the child */}
+        <Table data={data} config={config} />
     </div>
 }
 
