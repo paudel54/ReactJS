@@ -1,10 +1,27 @@
+import { useState } from 'react';
 import Table from './Table';
 
 function SortableTable(props) {
+    // by Default Null indicates we are not sorting by default it's unsorted
+    // To Keep Track of set order. 
+    const [sortOrder, setSortOrder] = useState(null);
+    // TO keep track of which column we are sorting by
+    const [sortBy, setSortBy] = useState(null);
+
     const { config } = props;
 
     const handleClick = (label) => {
-        console.log(label);
+        // console.log(label);
+        if (sortOrder === null) {
+            setSortOrder('asc');
+            setSortBy(label);
+        } else if (sortOrder === 'asc') {
+            setSortOrder('desc');
+            setSortBy(label);
+        } else if (sortOrder === 'desc') {
+            setSortOrder(null);
+            setSortBy(null);
+        }
     };
 
     const updatedConfig = config.map((column) => {
@@ -19,7 +36,11 @@ function SortableTable(props) {
 
     });
 
-    return <Table {...props} config={updatedConfig} />;
+    return <div>
+        {sortOrder} - {sortBy}
+        <Table {...props} config={updatedConfig} />;
+    </div>
+
 }
 
 export default SortableTable;
