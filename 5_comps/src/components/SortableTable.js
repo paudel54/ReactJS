@@ -12,6 +12,12 @@ function SortableTable(props) {
     const { config, data } = props;
 
     const handleClick = (label) => {
+        if (sortBy && label !== sortBy) {
+            setSortOrder('asc');
+            setSortBy(label);
+            return;
+        }
+
         // console.log(label);
         if (sortOrder === null) {
             setSortOrder('asc');
@@ -32,10 +38,13 @@ function SortableTable(props) {
 
         return {
             ...column,
-            header: () => <th onClick={() => handleClick(column.label)}>
+            header: () => <th className='cursor-pointer hover:bg-gray-100' onClick={() => handleClick(column.label)}>
                 {/* 3 things , which colum,  weather or not we sorting, sort dir*/}
-                {getIcons(column.label, sortBy, sortOrder)}
-                {column.label}
+
+                <div className='flex items-center'>
+                    {getIcons(column.label, sortBy, sortOrder)}
+                    {column.label}
+                </div>
             </th>
         };
 
@@ -60,7 +69,7 @@ function SortableTable(props) {
         });
     }
     return <div>
-        {sortOrder} - {sortBy}
+        {/* {sortOrder} - {sortBy} */}
         <Table {...props} data={sortedData} config={updatedConfig} />;
     </div>
 
@@ -68,15 +77,28 @@ function SortableTable(props) {
 
 function getIcons(label, sortBy, sortOrder) {
     if (label !== sortBy) {
-        return 'Show both icons';
+        // return 'Show both icons';
+        return <div>
+            <GoArrowSmallUp />
+            <GoArrowSmallDown />
+        </div>
     }
 
     if (sortOrder === null) {
-        return 'show both icons';
+        // return 'show both icons';
+        return <div>
+            <GoArrowSmallUp />
+            <GoArrowSmallDown />
+        </div>
     } else if (sortOrder === 'asc') {
-        return 'show up icon'
+        // return 'show up icon'
+        return <div>
+            <GoArrowSmallUp />
+        </div>
     } else if (sortOrder === 'desc') {
-        return 'show down icon'
+        return <div>
+            <GoArrowSmallDown />
+        </div>
     }
 }
 
