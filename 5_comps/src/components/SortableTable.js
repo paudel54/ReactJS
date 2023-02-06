@@ -1,35 +1,17 @@
-import { useState } from 'react';
 import Table from './Table';
 import { GoArrowSmallDown, GoArrowSmallUp } from "react-icons/go"
+import useSort from '../hooks/use-sort';
 
 function SortableTable(props) {
-    // by Default Null indicates we are not sorting by default it's unsorted
-    // To Keep Track of set order. 
-    const [sortOrder, setSortOrder] = useState(null);
-    // TO keep track of which column we are sorting by
-    const [sortBy, setSortBy] = useState(null);
-
     const { config, data } = props;
+    // Destructuring out the return form use-sort hooks 
 
-    const handleClick = (label) => {
-        if (sortBy && label !== sortBy) {
-            setSortOrder('asc');
-            setSortBy(label);
-            return;
-        }
-
-        // console.log(label);
-        if (sortOrder === null) {
-            setSortOrder('asc');
-            setSortBy(label);
-        } else if (sortOrder === 'asc') {
-            setSortOrder('desc');
-            setSortBy(label);
-        } else if (sortOrder === 'desc') {
-            setSortOrder(null);
-            setSortBy(null);
-        }
-    };
+    const {
+        sortOrder,
+        sortBy,
+        sortedData,
+        setSortColumn
+    } = useSort(data, config);
 
     const updatedConfig = config.map((column) => {
         if (!column.sortValue) {
@@ -38,7 +20,7 @@ function SortableTable(props) {
 
         return {
             ...column,
-            header: () => <th className='cursor-pointer hover:bg-gray-100' onClick={() => handleClick(column.label)}>
+            header: () => <th className='cursor-pointer hover:bg-gray-100' onClick={() => setSortColumn(column.label)}>
                 {/* 3 things , which colum,  weather or not we sorting, sort dir*/}
 
                 <div className='flex items-center'>
@@ -49,25 +31,7 @@ function SortableTable(props) {
         };
 
     });
-    // Only sort data if sortOrder && sortBy are not null. unsorted
-    // MAKE a copy of the 'data prop
-    // FInd the correct sortValue function and use it for sorting. 
-    let sortedData = data;
-    if (sortOrder && sortBy) {
-        const { sortValue } = config.find(column => column.label === sortBy);
-        sortedData = [...data].sort((a, b) => {
-            const valueA = sortValue(a);
-            const valueB = sortValue(b);
 
-            const reverseOrder = sortOrder === 'asc' ? 1 : -1;
-
-            if (typeof valueA === 'string') {
-                return valueA.localeCompare(valueB) * reverseOrder;
-            } else {
-                return (valueA - valueB) * reverseOrder;
-            }
-        });
-    }
     return <div>
         {/* {sortOrder} - {sortBy} */}
         <Table {...props} data={sortedData} config={updatedConfig} />;
