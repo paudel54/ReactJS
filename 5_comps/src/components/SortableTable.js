@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Table from './Table';
+import { GoArrowSmallDown, GoArrowSmallUp } from "react-icons/go"
 
 function SortableTable(props) {
     // by Default Null indicates we are not sorting by default it's unsorted
@@ -31,7 +32,11 @@ function SortableTable(props) {
 
         return {
             ...column,
-            header: () => <th onClick={() => handleClick(column.label)}>{column.label} IS SORTABLE</th>
+            header: () => <th onClick={() => handleClick(column.label)}>
+                {/* 3 things , which colum,  weather or not we sorting, sort dir*/}
+                {getIcons(column.label, sortBy, sortOrder)}
+                {column.label}
+            </th>
         };
 
     });
@@ -60,5 +65,22 @@ function SortableTable(props) {
     </div>
 
 }
+
+function getIcons(label, sortBy, sortOrder) {
+    if (label !== sortBy) {
+        return 'Show both icons';
+    }
+
+    if (sortOrder === null) {
+        return 'show both icons';
+    } else if (sortOrder === 'asc') {
+        return 'show up icon'
+    } else if (sortOrder === 'desc') {
+        return 'show down icon'
+    }
+}
+
+
+
 
 export default SortableTable;
