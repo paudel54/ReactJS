@@ -6,49 +6,40 @@ import Panel from '../components/Panel';
 // decalring variable to prevent TYPO errors
 const INCREMENT_COUNT = 'increment';
 const SET_VALUE_TO_ADD = 'change-value-to-add';
+const DECREMENT_COUNT = 'decrement';
+const ADD_VALUE_TO_COUNT = 'add_value_to_count';
+
 
 const reducer = (state, action) => {
     switch (action.type) {
         case INCREMENT_COUNT:
             return {
                 ...state,
+
                 count: state.count + 1
             };
+
+        case DECREMENT_COUNT:
+            return {
+                ...state,
+                count: state.count - 1
+            };
+
         case SET_VALUE_TO_ADD:
             return {
                 ...state,
                 valueToAdd: action.payload
             };
+        case ADD_VALUE_TO_COUNT:
+            return {
+                ...state,
+                count: state.count + state.valueToAdd,
+                valueToAdd: 0
+            }
         default:
             return state;
     }
-    // return {
-    //     // copies all the prop keys and val from state obj
-    //     ...state,
-    //     count: state.count + 1
 
-    // }
-    // console.log(state);
-
-    // if (action.type === INCREMENT_COUNT) {
-    //     // return is required here, if no returned for this the state would be automatically defined
-    //     // to undefined.
-    //     return {
-    //         ...state,
-    //         count: state.count + 1
-    //     };
-    // }
-
-    // if (action.type === SET_VALUE_TO_ADD) {
-    //     return {
-    //         ...state,
-    //         valueToAdd: action.payload
-    //     };
-
-    // }
-
-    // // even though no valid condition are met we can have return state
-    // return state;
 };
 
 // considering this component receives intial props and set defalut value for count
@@ -72,6 +63,10 @@ function CounterPage({ intialCount }) {
 
     const decrement = () => {
         // setCount(count - 1);
+        // Added action object with a type property
+        dispatch({
+            type: DECREMENT_COUNT,
+        });
     };
 
     // whenever event hander is called it gets called with the event object
@@ -91,6 +86,11 @@ function CounterPage({ intialCount }) {
         // two peice of state closely realted , here count and valueToAdd. useReducer favours such state
         // setCount(count + valueToAdd);
         // setValueToAdd(0);
+        dispatch(
+            {
+                type: ADD_VALUE_TO_COUNT,
+            }
+        );
     }
 
     return (
