@@ -3,6 +3,10 @@ import { useReducer } from 'react';
 import Button from '../components/Button';
 import Panel from '../components/Panel';
 
+// decalring variable to prevent TYPO errors
+const INCREMENT_COUNT = 'increment';
+const SET_VALUE_TO_ADD = 'change-value-to-add';
+
 const reducer = (state, action) => {
     // return {
     //     // copies all the prop keys and val from state obj
@@ -12,7 +16,7 @@ const reducer = (state, action) => {
     // }
     console.log(state);
 
-    if (action.type === 'increment') {
+    if (action.type === INCREMENT_COUNT) {
         // return is required here, if no returned for this the state would be automatically defined
         // to undefined.
         return {
@@ -21,7 +25,7 @@ const reducer = (state, action) => {
         };
     }
 
-    if (action.type === 'change-value-to-add') {
+    if (action.type === SET_VALUE_TO_ADD) {
         return {
             ...state,
             valueToAdd: action.payload
@@ -48,7 +52,7 @@ function CounterPage({ intialCount }) {
         // setCount(count + 1);
         // dispatch an action object that must have a type property
         dispatch({
-            type: 'increment'
+            type: INCREMENT_COUNT,
         });
     };
 
@@ -62,7 +66,7 @@ function CounterPage({ intialCount }) {
         // setValueToAdd(value);
         // dispatch an action object, which must have type of string, 
         dispatch({
-            type: 'change-value-to-add',
+            type: SET_VALUE_TO_ADD,
             payload: value
         });
     };
