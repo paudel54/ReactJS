@@ -8,33 +8,47 @@ const INCREMENT_COUNT = 'increment';
 const SET_VALUE_TO_ADD = 'change-value-to-add';
 
 const reducer = (state, action) => {
+    switch (action.type) {
+        case INCREMENT_COUNT:
+            return {
+                ...state,
+                count: state.count + 1
+            };
+        case SET_VALUE_TO_ADD:
+            return {
+                ...state,
+                valueToAdd: action.payload
+            };
+        default:
+            return state;
+    }
     // return {
     //     // copies all the prop keys and val from state obj
     //     ...state,
     //     count: state.count + 1
 
     // }
-    console.log(state);
+    // console.log(state);
 
-    if (action.type === INCREMENT_COUNT) {
-        // return is required here, if no returned for this the state would be automatically defined
-        // to undefined.
-        return {
-            ...state,
-            count: state.count + 1
-        };
-    }
+    // if (action.type === INCREMENT_COUNT) {
+    //     // return is required here, if no returned for this the state would be automatically defined
+    //     // to undefined.
+    //     return {
+    //         ...state,
+    //         count: state.count + 1
+    //     };
+    // }
 
-    if (action.type === SET_VALUE_TO_ADD) {
-        return {
-            ...state,
-            valueToAdd: action.payload
-        };
+    // if (action.type === SET_VALUE_TO_ADD) {
+    //     return {
+    //         ...state,
+    //         valueToAdd: action.payload
+    //     };
 
-    }
+    // }
 
-    // even though no valid condition are met we can have return state
-    return state;
+    // // even though no valid condition are met we can have return state
+    // return state;
 };
 
 // considering this component receives intial props and set defalut value for count
