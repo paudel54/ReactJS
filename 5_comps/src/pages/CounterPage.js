@@ -1,3 +1,6 @@
+// produce is a fn
+import produce from 'immer';
+
 // import { useState } from 'react';
 import { useReducer } from 'react';
 import Button from '../components/Button';
@@ -13,31 +16,41 @@ const ADD_VALUE_TO_COUNT = 'add_value_to_count';
 const reducer = (state, action) => {
     switch (action.type) {
         case INCREMENT_COUNT:
-            return {
-                ...state,
+            state.count = state.count + 1
+            return;
+        // return { changing code with immer fn , state change
+        //     ...state,
 
-                count: state.count + 1
-            };
+        //     count: state.count + 1
+        // };
 
         case DECREMENT_COUNT:
-            return {
-                ...state,
-                count: state.count - 1
-            };
+            state.count = state.count - 1;
+            return;
+        // return {
+        //     ...state,
+        //     count: state.count - 1
+        // };
 
         case SET_VALUE_TO_ADD:
-            return {
-                ...state,
-                valueToAdd: action.payload
-            };
+            state.valueToAdd = action.payload;
+            return;
+        // return {
+        //     ...state,
+        //     valueToAdd: action.payload
+        // };
         case ADD_VALUE_TO_COUNT:
-            return {
-                ...state,
-                count: state.count + state.valueToAdd,
-                valueToAdd: 0
-            }
+            state.count = state.count + state.valueToAdd;
+            state.valueToAdd = 0;
+            return;
+        // return {
+        //     ...state,
+        //     count: state.count + state.valueToAdd,
+        //     valueToAdd: 0
+        // }
         default:
-            return state;
+            return;
+        // return state
     }
 
 };
@@ -47,7 +60,8 @@ function CounterPage({ intialCount }) {
     // const [count, setCount] = useState(intialCount);
     // const [valueToAdd, setValueToAdd] = useState(0);
 
-    const [state, dispatch] = useReducer(reducer, {
+    // wrap reducer with produce to  implement immer for state change
+    const [state, dispatch] = useReducer(produce(reducer), {
         count: intialCount,
         valueToAdd: 0
     });
