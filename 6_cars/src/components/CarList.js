@@ -10,12 +10,16 @@ function CarList() {
     const dispatch = useDispatch();
 
     // array destructing , taking only data and searchTerm for cars state
-    const cars = useSelector(({ cars: { data, searchTerm } }) => {
+    const { cars, name } = useSelector(({ form, cars: { data, searchTerm } }) => {
         // return state.cars.data;
-        // look into every cars and return car if it's have name of searchTerm
-        return data.filter((car) => car.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        // loo k into every cars and return car if it's have name of searchTerm
+        const filteredCars = data.filter((car) => car.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        return {
+            cars: filteredCars,
+            name: form.name
+        }
     });
-    console.log(cars);
+    // console.log(cars);
 
     const handleCarDelete = (car) => {
         //receive car object
@@ -24,8 +28,11 @@ function CarList() {
     }
 
     const renderedCars = cars.map((car) => {
+        // Decide if this car should be bold
+        // state.form.name
+        const bold = name && car.name.toLowerCase().includes(name.toLowerCase());
         return (
-            <div key={car.id} className="panel">
+            <div key={car.id} className={`panel ${bold && 'bold'}`}>
                 <p>
                     {car.name} - ${car.cost}
                 </p>
