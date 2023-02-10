@@ -1,5 +1,8 @@
 // BoilerPlate To link up the index.html under public folder. 
 // App component is being imported and rendered out. 
+// import css
+import 'bulma/css/bulma.css';
+import './styles.css';
 import { Provider } from 'react-redux';
 import { store } from './store'
 
