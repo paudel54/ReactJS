@@ -3,9 +3,11 @@
 
 // CASE trying to acess data from redux store 
 // 1
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeCar } from '../store';
 
 function CarList() {
+    const dispatch = useDispatch();
 
     const cars = useSelector((state) => {
         return state.cars.data;
@@ -13,7 +15,9 @@ function CarList() {
     console.log(cars);
 
     const handleCarDelete = (car) => {
-        //...
+        //receive car object
+        // update state: call action creator to get an action and dispatch it. 
+        dispatch(removeCar(car.id));
     }
 
     const renderedCars = cars.map((car) => {
