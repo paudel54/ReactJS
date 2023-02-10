@@ -9,8 +9,11 @@ import { removeCar } from '../store';
 function CarList() {
     const dispatch = useDispatch();
 
-    const cars = useSelector((state) => {
-        return state.cars.data;
+    // array destructing , taking only data and searchTerm for cars state
+    const cars = useSelector(({ cars: { data, searchTerm } }) => {
+        // return state.cars.data;
+        // look into every cars and return car if it's have name of searchTerm
+        return data.filter((car) => car.name.toLowerCase().includes(searchTerm.toLowerCase()));
     });
     console.log(cars);
 
