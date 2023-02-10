@@ -28,6 +28,9 @@ function CarForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch(addCar({ name: name, cost: cost }));
+        // resetting the content after submission
+        dispatch(changeCost(0));
+        dispatch(changeName(''));
     }
 
 
