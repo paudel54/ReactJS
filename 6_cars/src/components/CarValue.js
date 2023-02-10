@@ -12,11 +12,16 @@ function CarValue() {
 
         //   for (variable of iterable)
         //   statement
-        let cost = 0;
-        for (let car of filteredCars) {
-            cost += car.cost
-        }
-        return cost;
+        // let cost = 0;
+        // for (let car of filteredCars) {
+        //     cost += car.cost
+        // }
+        // return cost;
+
+        // reduce function refactored
+        return filteredCars.reduce((acc, car) => {
+            return acc + car.cost
+        }, 0);
 
     });
 
