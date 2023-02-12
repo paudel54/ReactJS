@@ -10,6 +10,9 @@ const fetchUsers = createAsyncThunk('users/fetch', async () => {
     // upon this get request we get response like as here list of data obj
     // response.data === [{ id: 1, name: 'myra' }]
     //step3; accessing this data into reducer to update state
+
+    // dev only
+    await pause(1000);
     return response.data;
 });
 
@@ -18,5 +21,13 @@ const fetchUsers = createAsyncThunk('users/fetch', async () => {
 // fetchUsers.fulfilled === "users/fetch/fulfilled"
 // fetchUsers.rejected === "users/fetch/rejected"
 // are automatically added in by default on creation of createAsyncThunk
+
+// for DEV only, adding pause to see network req , create helper func 
+// this fn adds tiny little pause for us
+const pause = (duration) => {
+    return new Promise((resolve) => {
+        setTimeout(resolve, duration);
+    });
+};
 
 export { fetchUsers };
