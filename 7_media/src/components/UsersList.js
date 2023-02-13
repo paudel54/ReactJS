@@ -11,6 +11,12 @@ function UsersList() {
     // if we get error update the peice of state
     const [loadingUsersError, setloadingUsersError] = useState(null);
 
+    const [isCreatingUser, setIsCreatingUser] = useState(false);
+
+    const [creatingUserError, setCreatingUserError] = useState(null);
+
+
+
     const dispatch = useDispatch();
 
     // useSelector() ​ Allows you to extract data from the Redux store state, using a selector function.
@@ -38,7 +44,11 @@ function UsersList() {
     }, [dispatch]);
 
     const handleUserAdd = () => {
-        dispatch(addUser());
+        setIsCreatingUser(true);
+        dispatch(addUser())
+            .unwrap()
+            .catch(err => setCreatingUserError(err))
+            .finally(() => setIsCreatingUser(false))
     };
 
 
@@ -61,9 +71,13 @@ function UsersList() {
     return <div>
         <div className='flex flex-row justify-between m-3'>
             <h1 className='m-2 text-xl'>Users</h1>
-            <Button onClick={handleUserAdd}>
-                + Add User
-            </Button>
+            {
+                isCreatingUser ? 'Creating User...' :
+                    <Button onClick={handleUserAdd}>
+                        + Add User
+                    </Button>
+            }
+            {creatingUserError && 'Error Creating User.....'}
         </div>
         {renderedUsers}
     </div>
