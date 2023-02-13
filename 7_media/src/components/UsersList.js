@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 // useDispatch to run the thunk fn
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers, addUser } from '../store';
@@ -6,17 +6,29 @@ import Button from './Button';
 import Skeletion from './Skeleton';
 
 function UsersList() {
+    // if it's true show skeleton user comp. by default it's kept false
+    const [isLoadingUsers, setIsLoadingUsers] = useState(false);
+    // if we get error update the peice of state
+    const [loadingUsersError, setloadingUsersError] = useState(null);
 
     const dispatch = useDispatch();
 
     // useSelector() ​ Allows you to extract data from the Redux store state, using a selector function.
-    const { isLoading, data, error } = useSelector((state) => {
+    const { data } = useSelector((state) => {
         return state.users;
         // {data:[], isLoading:false, error:null}
     });
 
     useEffect(() => {
-        dispatch(fetchUsers());
+        setIsLoadingUsers(true);
+        dispatch(fetchUsers())
+            .unwrap()
+            .then(() => {
+                console.log('SUCCESS')
+            })
+            .catch(() => {
+                console.log('Fail!!!');
+            });
     }, [dispatch]);
 
     const handleUserAdd = () => {
@@ -24,11 +36,11 @@ function UsersList() {
     };
 
 
-    if (isLoading) {
+    if (isLoadingUsers) {
         // return <div>Loading......</div>
         return <Skeletion times={6} className="h-10 w-full" />;
     }
-    if (error) {
+    if (loadingUsersError) {
         return <div>Error fetching data...</div>
     }
 
