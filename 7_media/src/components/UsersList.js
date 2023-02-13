@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 // useDispatch to run the thunk fn
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from '../store';
+import Skeletion from './Skeleton';
 
 function UsersList() {
     const dispatch = useDispatch();
@@ -17,7 +18,8 @@ function UsersList() {
     }, [dispatch]);
 
     if (isLoading) {
-        return <div>Loading......</div>
+        // return <div>Loading......</div>
+        return <Skeletion times={6} />;
     }
     if (error) {
         return <div>Error fetching data...</div>
