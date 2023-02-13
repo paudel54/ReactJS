@@ -23,11 +23,17 @@ function UsersList() {
         setIsLoadingUsers(true);
         dispatch(fetchUsers())
             .unwrap()
-            .then(() => {
-                console.log('SUCCESS')
+            // .then(() => {
+            //     // console.log('SUCCESS')
+            //     // setIsLoadingUsers(false);
+            // })
+            .catch((err) => {
+                // console.log('Fail!!!');
+                setloadingUsersError(err);
+                // setIsLoadingUsers(false);
             })
-            .catch(() => {
-                console.log('Fail!!!');
+            .finally(() => {
+                setIsLoadingUsers(false);
             });
     }, [dispatch]);
 
