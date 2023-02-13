@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 // step4, tell reducer watch for action type and perform state change
 import { fetchUsers } from '../thunks/fetchUsers';
 
+import { addUser } from '../thunks/addUser';
+
 // adding state on user Slice, here list of user with data
 const usersSlice = createSlice(
     // Big state object
@@ -34,7 +36,19 @@ const usersSlice = createSlice(
                 state.isLoading = false;
                 state.error = action.error;
             });
-        }
+            // arrow fn is a reducer fn watching for an action types.
+            builder.addCase(addUser.pending, (state, action) => {
+                state.isLoading = true;
+            });
+            builder.addCase(addUser.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.data.push(action.payload);
+            });
+            builder.addCase(addUser.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.error;
+            });
+        },
     }
 );
 // export combined reducers, that is created when slice is made

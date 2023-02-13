@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 // useDispatch to run the thunk fn
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers } from '../store';
+import { fetchUsers, addUser } from '../store';
+import Button from './Button';
 import Skeletion from './Skeleton';
 
 function UsersList() {
+
     const dispatch = useDispatch();
 
     // useSelector() ​ Allows you to extract data from the Redux store state, using a selector function.
@@ -16,6 +18,11 @@ function UsersList() {
     useEffect(() => {
         dispatch(fetchUsers());
     }, [dispatch]);
+
+    const handleUserAdd = () => {
+        dispatch(addUser());
+    };
+
 
     if (isLoading) {
         // return <div>Loading......</div>
@@ -33,7 +40,15 @@ function UsersList() {
         </div>
     });
 
-    return <div>{renderedUsers}</div>
+    return <div>
+        <div className='flex flex-row justify-between m-3'>
+            <h1 className='m-2 text-xl'>Users</h1>
+            <Button onClick={handleUserAdd}>
+                + Add User
+            </Button>
+        </div>
+        {renderedUsers}
+    </div>
 }
 
 export default UsersList; 

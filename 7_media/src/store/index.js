@@ -16,3 +16,4 @@ export const store = configureStore({
 // export from this location can be easily accessed form other comp without makeing deep nested import
 // find everything exported from fetchUsers and export from index.js here
 export * from './thunks/fetchUsers';
+export * from './thunks/addUser';
