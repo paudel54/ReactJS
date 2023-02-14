@@ -4,6 +4,8 @@ import { fetchUsers } from '../thunks/fetchUsers';
 
 import { addUser } from '../thunks/addUser';
 
+import { removeUser } from '../thunks/removeUser';
+
 // adding state on user Slice, here list of user with data
 const usersSlice = createSlice(
     // Big state object
@@ -48,6 +50,20 @@ const usersSlice = createSlice(
                 state.isLoading = false;
                 state.error = action.error;
             });
+
+            builder.addCase(removeUser.pending, (state, action) => {
+                state.isLoading = true;
+            });
+            builder.addCase(removeUser.fulfilled, (state, action) => {
+                state.isLoading = false;
+                // fix me
+                console.log(action);
+            });
+            builder.addCase(removeUser.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.error;
+            });
+
         },
     }
 );
