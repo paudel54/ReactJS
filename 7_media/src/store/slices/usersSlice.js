@@ -1,3 +1,5 @@
+// Slice contains a reducers and action creator functions!!!
+
 import { createSlice } from '@reduxjs/toolkit';
 // step4, tell reducer watch for action type and perform state change
 import { fetchUsers } from '../thunks/fetchUsers';
