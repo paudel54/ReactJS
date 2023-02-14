@@ -1,40 +1,16 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Myra"
-    },
-    {
-      "name": "Glen Hodkiewicz",
-      "id": 2
-    },
-    {
-      "name": "Erika Toy",
+      "name": "Eleanor Ritchie",
       "id": 3
     },
     {
-      "name": "Marc Lubowitz DDS",
-      "id": 4
-    },
-    {
-      "name": "Anne Mueller",
+      "name": "Roderick Ledner",
       "id": 5
     },
     {
-      "name": "Cornelius Powlowski",
+      "name": "Gary Adams",
       "id": 6
-    },
-    {
-      "name": "Derrick Hettinger",
-      "id": 7
-    },
-    {
-      "name": "Benny Stokes",
-      "id": 8
-    },
-    {
-      "name": "Amelia Hirthe",
-      "id": 9
     }
   ],
   "albums": [],
