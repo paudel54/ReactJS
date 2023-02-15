@@ -1,6 +1,7 @@
 import { GoTrashcan } from 'react-icons/go';
 import Button from './Button';
 import ExpandablePanel from './ExpandablePanel';
+import PhotosList from './PhotosList';
 
 function AlbumsListItem({ album }) {
     const header = <div>
@@ -11,7 +12,7 @@ function AlbumsListItem({ album }) {
     </div>;
     return (
         <ExpandablePanel key={album.id} header={header}>
-            List of Photos in the album
+            <PhotosList album={album} />
         </ExpandablePanel>
     );
 }
