@@ -1,6 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { faker } from '@faker-js/faker';
 
+//dev only
+const pause = (duration) => {
+    return new Promise((resolve) => {
+        setTimeout(resolve, duration);
+    });
+};
+
 const albumsApi = createApi({
     // config  to obj to describe each individual request. .
     // there contains 3 required properties we need to add each one at a time
@@ -13,13 +20,21 @@ const albumsApi = createApi({
     baseQuery: fetchBaseQuery({
         // will holds a configuration
         // pre-config, browser default fetch replacement to axions
-        baseUrl: 'http://localhost:3005'
+        baseUrl: 'http://localhost:3005',
+        fetchFn: async (...args) => {
+            // remove for production
+            await pause(1000);
+            return fetch(...args);
+        }
     }),
     endpoints(builder) {
         return {
 
             addAlbum: builder.mutation({
-                invalidatesTags: ['Album'],
+                // invalidatesTags: ['Album'],
+                invalidatesTags: (result, error, user) => {
+                    return [{ type: 'Album', id: user.id }]
+                },
                 query: (user) => {
                     return {
                         url: '/albums',
@@ -37,7 +52,12 @@ const albumsApi = createApi({
             // this is config obj below 
             fetchAlbums: builder.query({
                 // names can be anythinh cap or singular , simply we write te resources
-                providesTags: ['Album'],
+                // providesTags: ['Album'], changed into dynamically generated tag!
+                providesTags: (result, error, user) => {
+                    return [{
+                        type: 'Album', id: user.id
+                    }];
+                },
                 query: (user) => {
                     return {
                         // configuration object, tell how to fetch items
