@@ -1,4 +1,4 @@
-import { useFetchAlbumsQuery, useAddAlbumMutation } from "../store";
+import { useFetchAlbumsQuery, useAddAlbumMutation, useRemoveAlbumMutation } from "../store";
 import Skeleton from './Skeleton';
 import ExpandablePanel from './ExpandablePanel';
 import Button from './Button';
@@ -11,6 +11,7 @@ function AlbumsList({ user }) {
     // console.log(results);
     // addlbum contains fn where results contains obj, as mutation returns fn and obj
     const [addAlbum, results] = useAddAlbumMutation();
+    const [removeAlbum, removeAlbumResults] = useRemoveAlbumMutation();
     // console.log(results);
 
     const handleAddAlbum = () => {
