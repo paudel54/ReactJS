@@ -18,6 +18,56 @@
       "id": 10,
       "title": "Hiking Trip",
       "userId": 6
+    },
+    {
+      "userId": 6,
+      "title": "Refined Soft Pants",
+      "id": 11
+    },
+    {
+      "userId": 3,
+      "title": "Practical Cotton Pizza",
+      "id": 12
+    },
+    {
+      "userId": 6,
+      "title": "Tasty Metal Chair",
+      "id": 13
+    },
+    {
+      "userId": 6,
+      "title": "Incredible Fresh Fish",
+      "id": 14
+    },
+    {
+      "userId": 6,
+      "title": "Fantastic Concrete Shoes",
+      "id": 15
+    },
+    {
+      "userId": 6,
+      "title": "Intelligent Granite Computer",
+      "id": 16
+    },
+    {
+      "userId": 6,
+      "title": "Rustic Plastic Tuna",
+      "id": 17
+    },
+    {
+      "userId": 6,
+      "title": "Incredible Rubber Soap",
+      "id": 18
+    },
+    {
+      "userId": 6,
+      "title": "Sleek Wooden Cheese",
+      "id": 19
+    },
+    {
+      "userId": 6,
+      "title": "Licensed Metal Mouse",
+      "id": 20
     }
   ],
   "photos": []

@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { faker } from '@faker-js/faker';
 
 const albumsApi = createApi({
     // config  to obj to describe each individual request. .
@@ -16,10 +17,27 @@ const albumsApi = createApi({
     }),
     endpoints(builder) {
         return {
+
+            addAlbum: builder.mutation({
+                invalidatesTags: ['Album'],
+                query: (user) => {
+                    return {
+                        url: '/albums',
+                        method: 'POST',
+                        body: {
+                            userId: user.id,
+                            title: faker.commerce.productName()
+                        }
+                    }
+                }
+            }),
             // fetchAlbum: is a simplified name:: 
             // builder method contains query , since it's get , could have mutation
             // here fetchAlbums is a key to use useFetchAlbumQuery hook!!
+            // this is config obj below 
             fetchAlbums: builder.query({
+                // names can be anythinh cap or singular , simply we write te resources
+                providesTags: ['Album'],
                 query: (user) => {
                     return {
                         // configuration object, tell how to fetch items
@@ -38,5 +56,9 @@ const albumsApi = createApi({
     }
 });
 
-export const { useFetchAlbumsQuery } = albumsApi;
+export const {
+    // automatically generated hooks, Must follow naming convention
+    useFetchAlbumsQuery,
+    useAddAlbumMutation
+} = albumsApi;
 export { albumsApi };

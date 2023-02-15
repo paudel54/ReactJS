@@ -1,4 +1,4 @@
-import { useFetchAlbumsQuery } from "../store";
+import { useFetchAlbumsQuery, useAddAlbumMutation } from "../store";
 import Skeleton from './Skeleton';
 import ExpandablePanel from './ExpandablePanel';
 import Button from './Button';
@@ -6,8 +6,16 @@ import Button from './Button';
 function AlbumsList({ user }) {
     // const results = useFetchAlbumsQuery(user);
     const { data, error, isLoading } = useFetchAlbumsQuery(user);
+    // useFetchAlbumsQuery(user);
     // console.log(data, error, isLoading);
     // console.log(results);
+    // addlbum contains fn where results contains obj, as mutation returns fn and obj
+    const [addAlbum, results] = useAddAlbumMutation();
+    // console.log(results);
+
+    const handleAddAlbum = () => {
+        addAlbum(user);
+    };
 
     let content;
     if (isLoading) {
@@ -26,6 +34,9 @@ function AlbumsList({ user }) {
     return <div>
         <div>
             Albums For {user.name}
+            <Button onClick={handleAddAlbum}>
+                + Add Album
+            </Button>
         </div>
         <div>
             {content}

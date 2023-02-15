@@ -23,6 +23,8 @@ export const store = configureStore({
     }
 
 });
+// temp we can access store form browser console with this assignment!
+// window.store = store;
 
 setupListeners(store.dispatch);
 
@@ -32,4 +34,7 @@ setupListeners(store.dispatch);
 export * from './thunks/fetchUsers';
 export * from './thunks/addUser';
 export * from './thunks/removeUser';
-export { useFetchAlbumsQuery } from './apis/albumsApi';
+export {
+    useFetchAlbumsQuery,
+    useAddAlbumMutation
+} from './apis/albumsApi';
