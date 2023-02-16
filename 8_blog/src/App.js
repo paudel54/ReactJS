@@ -1,9 +1,12 @@
 import TopBar from "./topbar/TopBar";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
     <>
       <TopBar />
+      <Home />
+      <hr></hr>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ut. Ullam ipsa obcaecati quos eaque minima atque, tenetur id doloribus quas eius dolorem accusantium, corporis, repellat nam eveniet nisi iste!
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae qui odit laboriosam minus accusamus sed explicabo magnam maiores asperiores facilis et officia quod itaque sint harum, dolor dolores! Quos, aperiam.
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, consectetur dolor adipisci, illum amet neque vitae laudantium rem officiis accusamus commodi a. Dolore id eveniet voluptatibus rem ea officiis molestiae.
