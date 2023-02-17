@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   font-family: "Josefin Sans";
+  z-index: 888;
 }
 
 .topLeft,
