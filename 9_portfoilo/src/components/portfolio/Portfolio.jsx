@@ -1,4 +1,4 @@
 import "./portfolio.scss";
 export default function Portfolio() {
-  return <div>Portfolio</div>;
+  return <section id="portfolio">Portfoilo</section>;
 }
