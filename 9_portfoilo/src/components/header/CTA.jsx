@@ -1,5 +1,4 @@
 import CV from "../../assets/CV.pdf";
-
 export default function CTA() {
   return (
     <div className="cta">
