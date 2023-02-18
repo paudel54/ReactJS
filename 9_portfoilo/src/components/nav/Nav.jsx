@@ -7,8 +7,8 @@ import { TbMessage } from "react-icons/tb";
 
 export default function Nav() {
   return (
-    <div>
-      <a href="#home">
+    <nav>
+      <a href="#" className="active">
         <AiFillHome />
       </a>
       <a href="#about">
@@ -23,6 +23,6 @@ export default function Nav() {
       <a href="#contact">
         <TbMessage />
       </a>
-    </div>
+    </nav>
   );
 }
