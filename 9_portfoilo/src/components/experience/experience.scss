@@ -68,3 +68,13 @@
         padding: 2rem 1rem;
     }
 }
+
+@media screen and (max-width: 360px) {
+    .experience__container {
+        gap: 1rem;
+    }
+    .experience__container > div {
+        width: 100%;
+        padding: 2rem 1rem;
+    }
+}

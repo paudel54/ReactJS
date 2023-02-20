@@ -10,11 +10,11 @@ export default function Portfolio() {
       <h5>My Recent Projects</h5>
       <h2>Portfolio</h2>
       <div className="container portfolio__container">
-        <article className="portfolio__item">
+        <article className="portfolio__item item1">
           <div className="portfolio__item-image">
             <img src={IMG1} alt="Shoes e-commerce" />
           </div>
-          <h3>This is a protfolio item title </h3>
+          <h3>E-Commerce -Men's Wear</h3>
           <a
             href="https://github.com/paudel54"
             className="btn"
@@ -30,9 +30,9 @@ export default function Portfolio() {
         {/* *********************************************** */}
         <article className="portfolio__item">
           <div className="portfolio__item-image">
-            <img src={IMG2} alt="Shoes e-commerce" />
+            <img src={IMG2} alt="Finance Management tool" />
           </div>
-          <h3>This is a protfolio item title </h3>
+          <h3>Finance Tracker </h3>
           <a
             href="https://github.com/paudel54"
             className="btn"
@@ -48,9 +48,9 @@ export default function Portfolio() {
         {/* ***************************************** */}
         <article className="portfolio__item">
           <div className="portfolio__item-image">
-            <img src={IMG3} alt="Shoes e-commerce" />
+            <img src={IMG3} alt="LMS" />
           </div>
-          <h3>This is a protfolio item title </h3>
+          <h3>Learning Management System</h3>
           <a
             href="https://github.com/paudel54"
             className="btn"
@@ -68,7 +68,7 @@ export default function Portfolio() {
           <div className="portfolio__item-image">
             <img src={IMG4} alt="Shoes e-commerce" />
           </div>
-          <h3>This is a protfolio item title </h3>
+          <h3>Finance Tracker -Mobile </h3>
           <a
             href="https://github.com/paudel54"
             className="btn"
