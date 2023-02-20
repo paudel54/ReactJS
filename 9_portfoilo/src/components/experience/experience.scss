@@ -39,3 +39,32 @@
         }
     }
 }
+
+// Writing a Media Queries for screen sizes:
+// tablets
+
+@media screen and (max-width: 1024px) {
+    .experience__container {
+        grid-template-columns: 1fr;
+    }
+    .experience__container > div {
+        width: 80%;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .experience__content {
+        padding: 1rem;
+    }
+}
+
+// mobile
+@media screen and (max-width: 600px) {
+    .experience__container {
+        gap: 1rem;
+    }
+    .experience__container > div {
+        width: 100%;
+        padding: 2rem 1rem;
+    }
+}
