@@ -2,7 +2,32 @@ import { RiMailSendLine } from "react-icons/ri";
 import { IoLogoLinkedin } from "react-icons/io";
 import { FaWhatsappSquare } from "react-icons/fa";
 import "./contact.scss";
+// emailjs
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
 export default function Contact() {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_drgb6wn",
+        "template_c5850zs",
+        form.current,
+        "8kzzeh8OfVXZC6h8i"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  };
   return (
     <section id="contact">
       <h5>Get In Touch</h5>
@@ -49,7 +74,7 @@ export default function Contact() {
         </div>
         {/* end of contact */}
 
-        <form action="">
+        <form ref={form} onSubmit={sendEmail}>
           <input
             type="text"
             name="name"
