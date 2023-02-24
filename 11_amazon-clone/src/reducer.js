@@ -5,6 +5,7 @@ export const initialStage = {
 // action is what you trying to do? Add: Remove what?
 // Reducer is always listening for action to dispatch
 const reducer = (state, action) => {
+
     switch (action.type) {
         case 'ADD_TO_BASKET':
             return {

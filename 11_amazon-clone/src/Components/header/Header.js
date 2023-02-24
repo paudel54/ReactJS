@@ -1,11 +1,13 @@
-// Component fileName is Capitalized. 
+// Component fileName is Capitalized. 2:23
 import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom';
 import './header.scss';
+import { useStateValue } from '../../StateProvider';
 
 export default function Header() {
+    const [{ basket }, dispatch] = useStateValue();
     return (
         <div className='header'>
             <Link to='/'>
@@ -46,7 +48,7 @@ export default function Header() {
                 <Link to="/checkout">
                     <div className="header__optionBasket">
                         <ShoppingCartIcon />
-                        <span className='header__optionLineTwo header__basketCount'>0</span>
+                        <span className='header__optionLineTwo header__basketCount'>{basket?.length}</span>
                     </div>
                 </Link>
 
