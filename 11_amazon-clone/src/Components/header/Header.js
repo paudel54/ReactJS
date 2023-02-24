@@ -1,5 +1,7 @@
 // Component fileName is Capitalized. 
 import React from 'react'
+import SearchIcon from '@mui/icons-material/Search';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import './header.scss';
 
 export default function Header() {
@@ -7,7 +9,8 @@ export default function Header() {
         <div className='header'>
             <img className='header__logo' alt='logo' src='https://companieslogo.com/img/orig/AMZN_BIG.D-8fb0be81.png?t=1632523695' />
             <div className="header__search">
-                <input className='header_searchInput' type="text" />
+                <input className='header__searchInput' type="text" />
+                <SearchIcon className="header__searchIcon" />
             </div>
             <div className="header__nav">
                 <div className="header__option">
@@ -34,6 +37,11 @@ export default function Header() {
                     <span className='header__optionLineTwo'>
                         Prime
                     </span>
+                </div>
+
+                <div className="header__optionBasket">
+                    <ShoppingCartIcon />
+                    <span className='header__optionLineTwo header__basketCount'>0</span>
                 </div>
             </div>
         </div>
