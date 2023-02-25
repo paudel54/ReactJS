@@ -1,12 +1,14 @@
 import './subtotal.scss';
 import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "../../StateProvider";
+import { getBasketTotal } from '../../reducer';
 
 export default function Subtotal() {
     const [{ basket }, dispatch] = useStateValue();
     return (
         <div className='subtotal'>
             <CurrencyFormat
+                // renderprop
                 renderText={(value) => (
                     <>
                         <p>
@@ -22,7 +24,7 @@ export default function Subtotal() {
                 )}
                 decimalScale={2}
                 // update value with sum that you got from the prob passing
-                value={0}
+                value={getBasketTotal(basket)}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"$"}
