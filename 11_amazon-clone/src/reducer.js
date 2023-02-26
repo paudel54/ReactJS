@@ -1,5 +1,6 @@
 export const initialStage = {
     basket: [],
+    user: null
 };
 
 // action is what you trying to do? Add: Remove what?
@@ -30,6 +31,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 basket: newBasket
+            }
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.user
             }
         default:
             return state;
