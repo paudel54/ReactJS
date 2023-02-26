@@ -9,6 +9,12 @@ import { useEffect } from 'react';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
 
+// stripe import 2 majour
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from '@stripe/react-stripe-js'
+
+const promise = loadStripe('pk_test_51MfiqIFUQcYcgGbkzyiA2aulCCIVjcUK7T5I7vWcp1GuXEkaYRBSaSpjsJOGHZTtsqmC8gsIFC20iX5UCyqEEZi800mXMlXsqJ');
+
 function App() {
 
   const [{ }, dispatch] = useStateValue();
@@ -46,7 +52,11 @@ function App() {
           {/* use react fregment for multiple rendering  */}
           <Route path='/' element={<> <Header /> <Home /></>} />
           <Route path='/checkout' element={<> <Header /> <Checkout /></>} />
-          <Route path='/payment' element={<> <Header /> <Payment /></>} />
+          <Route path='/payment' element={<> <Header />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
+          </>} />
         </Routes>
 
       </div>
