@@ -1,0 +1,81 @@
+[debug] [2023-02-26T14:54:27.875Z] ----------------------------------------------------------------------
+[debug] [2023-02-26T14:54:27.877Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\aashi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2023-02-26T14:54:27.878Z] CLI Version:   11.24.0
+[debug] [2023-02-26T14:54:27.878Z] Platform:      win32
+[debug] [2023-02-26T14:54:27.878Z] Node Version:  v18.14.2
+[debug] [2023-02-26T14:54:27.879Z] Time:          Sun Feb 26 2023 20:39:27 GMT+0545 (Nepal Time)
+[debug] [2023-02-26T14:54:27.880Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-26T14:54:28.006Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-26T14:54:28.006Z] > authorizing via signed-in user (2sansrit@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting"}}
+[debug] [2023-02-26T14:54:28.020Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-02-26T14:54:28.021Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-02-26T14:54:28.021Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-02-26T14:54:28.042Z] [hub] writing locator at C:\Users\aashi\AppData\Local\Temp\hub-challenge-77073.json
+[debug] [2023-02-26T14:54:28.085Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-02-26T14:54:28.086Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-02-26T14:54:28.086Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, pubsub, storage\u001b[22m"}}
+[debug] [2023-02-26T14:54:28.101Z] defaultcredentials: writing to file C:\Users\aashi\AppData\Roaming\firebase\2sansrit_gmail_com_application_default_credentials.json
+[debug] [2023-02-26T14:54:28.116Z] Setting GAC to C:\Users\aashi\AppData\Roaming\firebase\2sansrit_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\aashi\\AppData\\Roaming\\firebase\\2sansrit_gmail_com_application_default_credentials.json"}}
+[debug] [2023-02-26T14:54:28.119Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/challenge-77073/adminSdkConfig [none]
+[debug] [2023-02-26T14:54:28.644Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/challenge-77073/adminSdkConfig 200
+[debug] [2023-02-26T14:54:28.644Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/challenge-77073/adminSdkConfig {"projectId":"challenge-77073","storageBucket":"challenge-77073.appspot.com"}
+[debug] [2023-02-26T14:54:28.672Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/challenge-77073/sites 
+[debug] [2023-02-26T14:54:29.842Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/challenge-77073/sites 200
+[debug] [2023-02-26T14:54:29.842Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/challenge-77073/sites {"sites":[{"name":"projects/challenge-77073/sites/challenge-77073","defaultUrl":"https://challenge-77073.web.app","appId":"1:299759554723:web:75490f7610e9b3a0fcaf16","type":"DEFAULT_SITE"}]}
+[debug] [2023-02-26T14:54:29.842Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/challenge-77073/webApps/1:299759554723:web:75490f7610e9b3a0fcaf16/config [none]
+[debug] [2023-02-26T14:54:31.157Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/challenge-77073/webApps/1:299759554723:web:75490f7610e9b3a0fcaf16/config 200
+[debug] [2023-02-26T14:54:31.158Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/challenge-77073/webApps/1:299759554723:web:75490f7610e9b3a0fcaf16/config {"projectId":"challenge-77073","appId":"1:299759554723:web:75490f7610e9b3a0fcaf16","storageBucket":"challenge-77073.appspot.com","apiKey":"AIzaSyAQ0hGXoe5w7vInDLsujyJjN7-4LGHgtwc","authDomain":"challenge-77073.firebaseapp.com","messagingSenderId":"299759554723"}
+[debug] [2023-02-26T14:54:31.168Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/challenge-77073 [none]
+[debug] [2023-02-26T14:54:31.853Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/challenge-77073 200
+[debug] [2023-02-26T14:54:31.853Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/challenge-77073 {"projectId":"challenge-77073","projectNumber":"299759554723","displayName":"amazon-challenge","name":"projects/challenge-77073","resources":{"hostingSite":"challenge-77073"},"state":"ACTIVE","etag":"1_0b9ccbcf-51e0-4e8e-a13e-9824527431a2"}
+[info] i  hosting[challenge-77073]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] +  hosting[challenge-77073]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[debug] [2023-02-26T14:54:31.901Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-02-26T14:54:31.901Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-02-26T14:54:31.901Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\aashi\\.cache\\firebase\\emulators\\ui-v1.11.4\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\aashi\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.4\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-02-26T14:54:32.092Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-02-26T14:54:32.092Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "D:\Projects\ReactJs\11_amazon-clone\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\Projects\\ReactJs\\11_amazon-clone\\functions\" for Cloud Functions..."}}
+[debug] [2023-02-26T14:54:32.175Z] Validating nodejs source
+[debug] [2023-02-26T14:54:34.192Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "firebase-admin": "^11.5.0",
+    "firebase-functions": "^4.2.0",
+    "stripe": "^11.12.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.0.0"
+  },
+  "private": true
+}
+[debug] [2023-02-26T14:54:34.193Z] Building nodejs source
+[debug] [2023-02-26T14:54:34.193Z] Failed to find version of module node: reached end of search path D:\Projects\ReactJs\11_amazon-clone\functions\node_modules
+[warn] !  functions: Your requested "node" version "16" doesn't match your global version "18". Using node@18 from host. 
+[debug] [2023-02-26T14:54:34.198Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-02-26T14:54:34.210Z] Found firebase-functions binary at 'D:\Projects\ReactJs\11_amazon-clone\functions\node_modules\.bin\firebase-functions'
+[debug] [2023-02-26T14:54:34.225Z] [work-queue] {"queuedWork":["/challenge-77073/us-central1/api-2023-02-26T14:54:34.225Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-02-26T14:54:34.225Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/challenge-77073/us-central1/api-2023-02-26T14:54:34.225Z"],"workRunningCount":1}
+[debug] [2023-02-26T14:54:34.230Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
