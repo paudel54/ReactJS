@@ -2,9 +2,11 @@ import './subtotal.scss';
 import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "../../StateProvider";
 import { getBasketTotal } from '../../reducer';
+import { useNavigate } from 'react-router';
 
 export default function Subtotal() {
     const [{ basket }, dispatch] = useStateValue();
+    const navigate = useNavigate();
     return (
         <div className='subtotal'>
             <CurrencyFormat
@@ -19,7 +21,7 @@ export default function Subtotal() {
                         <small className='subtotal__gift'>
                             <input type='checkbox' /> This order contains a gift
                         </small>
-                        <button>Proceed to Checkout</button>
+                        <button onClick={e => navigate('/payment')}>Proceed to Checkout</button>
                     </>
                 )}
                 decimalScale={2}
@@ -32,3 +34,8 @@ export default function Subtotal() {
         </div>
     )
 }
+
+
+// import { Link, useNavigate } from 'react-router-dom'
+// const navigate = useNavigate ();
+// navigate('/')

@@ -3,6 +3,7 @@ import Header from './Components/header/Header';
 import Home from './Components/home/Home';
 import Checkout from './Components/checkout/Checkout';
 import Login from './Components/login/Login';
+import Payment from './Components/payment/Payment';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from 'react';
 import { auth } from './firebase';
@@ -45,6 +46,7 @@ function App() {
           {/* use react fregment for multiple rendering  */}
           <Route path='/' element={<> <Header /> <Home /></>} />
           <Route path='/checkout' element={<> <Header /> <Checkout /></>} />
+          <Route path='/payment' element={<> <Header /> <Payment /></>} />
         </Routes>
 
       </div>
