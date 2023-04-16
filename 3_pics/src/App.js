@@ -11,7 +11,7 @@ function App() {
     const [images, setImages] = useState([]);
     // Creating event handler for handleSubmit
     const handleSubmit = async (term) => {
-        // console.log('Do a search with', term);
+        console.log('Do a search with', term);
         const result = await SearchImages(term);
         // console.log(result); 
         //update setImages states

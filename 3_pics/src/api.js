@@ -6,11 +6,15 @@ const searchImages = async (term) => {
         headers: {
             Authorization: 'Client-ID iNODMAQHxs7zjxTo2zJ7Q_KHBLLyXNd123k7ietYHjM',
         },
+        //terms will contain input text items, searched term
         params: {
             query: term,
         },
     });
+    // console.log(response);
     return response.data.results;
 };
 
 export default searchImages;
+
+

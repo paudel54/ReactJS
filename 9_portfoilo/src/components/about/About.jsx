@@ -1,5 +1,5 @@
 import "./about.scss";
-import ME from "../../assets/me-about.jpg";
+import ME from "../../assets/me.gif";
 import { RiAwardFill } from "react-icons/ri";
 import { FiUsers } from "react-icons/fi";
 import { VscFolderActive } from "react-icons/vsc";
@@ -38,10 +38,9 @@ export default function About() {
           </div>
           {/* Paragraph */}
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-            libero illum unde, aspernatur nesciunt molestiae magnam voluptatibus
-            commodi! Excepturi itaque rerum reprehenderit ratione quos! Laborum
-            vero corporis explicabo nesciunt nobis.
+            well-versed in a variety of programming languages, frameworks, and
+            tools that are needed to develop and maintain complex web
+            applications.
           </p>
           <a href="#contact" className="btn btn-primary">
             Let's Get Connected!

@@ -26,15 +26,17 @@ function SearchBar({ onSubmit }) {
 
     };
 
-    return <div className='search-bar'>
+    return <div className='mt-10'>
         {/* wrapping the input element inside form element  porvides a power to submit the form auto when user hits enter*/}
         <form onSubmit={handleFormSubmit}>
             {/* term is a var from useState */}
             {/* Confirm your Search: {term} */}
-            <label>Enter Search Term</label>
-            <br></br>
-            {/* wiring up the event handler to input telling up with current value must be term or '' state */}
-            <input value={term} onChange={handleChange} />
+            <div className='flex flex-col justify-center items-center'>
+                <label className='animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black'>Enter Search Term</label>
+                <br></br>
+                {/* wiring up the event handler to input telling up with current value must be term or '' state */}
+                <input className=' mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm  rounded-lg block w-[20rem] p-2.5' value={term} onChange={handleChange} />
+            </div>
         </form>
 
         {/* <button onClick={handleClick}>Click here</button> */}

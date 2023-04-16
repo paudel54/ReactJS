@@ -14,19 +14,19 @@ const data = [
     avatar: "https://randomuser.me/api/portraits/men/79.jpg",
     name: "Daniel Jones",
     review:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Provident numquam fugit dolorum eius non quisquam, nostrum harum ea. Error, ipsum tenetur nostrum optio incidunt pariatur modi ea nobis quasi itaque.lorem Lorem ipsum dolor, sit amet consectetur adipisicing elit",
+      "Working with Sansrit was an absolute pleasure. Their creativity, attention to detail, and technical expertise helped us to create a website that truly reflects our brand and engages our customers.",
   },
   {
     avatar: "https://randomuser.me/api/portraits/women/53.jpg",
     name: "Isabella Garcia",
     review:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Provident numquam fugit dolorum eius non quisquam, nostrum harum ea. Error, ipsum tenetur nostrum optio incidunt pariatur modi ea nobis quasi itaque.lorem Lorem ipsum dolor, sit amet consectetur adipisicing elit",
+      "I highly recommend Sansrit to anyone looking for a talented and reliable web designer. They were professional, responsive, and delivered our website on time and on budget. Our website has helped us to attract new customers and grow our business.",
   },
   {
     avatar: "https://randomuser.me/api/portraits/men/66.jpg",
     name: "Ethan Wilson",
     review:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Provident numquam fugit dolorum eius non quisquam, nostrum harum ea. Error, ipsum tenetur nostrum optio incidunt pariatur modi ea nobis quasi itaque.lorem Lorem ipsum dolor, sit amet consectetur adipisicing elit",
+      "I was really impressed with Sansrit's ability to get the job done on time. I had a tight deadline for my project, and they were able to deliver the work ahead of schedule. Not only did they meet the deadline, but they also produced high-quality work that exceeded my expectations.",
   },
 ];
 
