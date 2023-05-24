@@ -8,6 +8,7 @@ import ImageList from './components/ImageList';
 
 function App() {
     //creating new state for passing image to imageList
+    //here image set is updated from child component
     const [images, setImages] = useState([]);
     // Creating event handler for handleSubmit
     const handleSubmit = async (term) => {
@@ -32,4 +33,6 @@ function App() {
 
 export default App;
 
-// MINI PROJECT 3 , SEARCH IMAGES WITH API CALL ACCOMPLISHED. 
+// MINI PROJECT 3 , SEARCH IMAGES WITH API CALL ACCOMPLISHED.
+//Image Search with use of API
+//Child to Parent Communication.

@@ -9,7 +9,7 @@ const ListCoin = ({ title, data }) => {
       <div className="flex justify-between mb-6">
         <span className="font-bold text-lg">
           {emoji(title, {
-            props: { className: "inline mr-8 text-normal" },
+            props: { className: "inline-block mr-4 text-normal" },
           })}
         </span>
         <a href="#/" className="text-primary">
